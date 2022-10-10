@@ -1,4 +1,4 @@
-//
+// Common canvas package
 
 //Thanks to Carl Kingsford and Hannah Kim for producing
 //the canvas.go file, which makes drawing objects on a
