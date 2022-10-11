@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 )
+// min of 2 integers and reuse them in min of 3
 
 func min_of_three(num1, num2, num3 int){
 	if(num1 < num2 && num1 < num3){
