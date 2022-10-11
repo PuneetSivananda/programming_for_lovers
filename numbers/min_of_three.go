@@ -11,7 +11,7 @@ func min_of_three(num1, num2, num3 int){
 	} else if(num2 < num1 && num2 < num3){
 		fmt.Println("num2 is smallest")
 		return
-	} else if(num3 < num1 && num3 < num2){
+	} else {
 		fmt.Println("num3 is smallest")
 		return
 	}
