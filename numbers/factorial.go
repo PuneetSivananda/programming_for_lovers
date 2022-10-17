@@ -22,7 +22,17 @@ func Factorial(n int) int{
 	return p
 }
 
+func AnotherFactorial(n int) int{
+	p:=1
+	for i:=1; i<=n; i++{
+		p = p*i
+	}
+	return p
+}
+
 func main(){
 	fact := Factorial(1)
+	anotherFact:= AnotherFactorial(10)
+	fmt.Println("AnotherFactorial:=", anotherFact)
 	fmt.Println(fact)
 }
