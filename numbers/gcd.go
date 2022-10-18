@@ -19,3 +19,15 @@ Min2(a,b)
 */
 
 
+/*
+Trivial Gcd pseudocode
+
+trivialGcd(a, b)
+	d<-1
+	m<-min2(a, b)
+	for every integer p from 1 to m
+		if p is divisor of a and b
+			d<-p
+	return d
+*/
+
