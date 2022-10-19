@@ -31,3 +31,21 @@ trivialGcd(a, b)
 	return d
 */
 
+func min(a, b int) int{
+	if(a<b){
+		return a
+	}
+	return b
+}
+
+func trivialGcd(a, b int) int{
+	d:= 1
+	m:= min(a, b)
+	for (p:=1; p<= m; p++){
+		if( p%a === 0 && p%b ===0){
+			d = p
+		}
+	}
+	return d
+}
+
