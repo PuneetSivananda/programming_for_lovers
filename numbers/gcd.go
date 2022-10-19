@@ -49,3 +49,18 @@ func trivialGcd(a, b int) int{
 	return d
 }
 
+// doomsday helper functions for dividing the numbers
+func integerDivision(n, p){
+	c:= 0
+	n = n - p
+	if(n>=0){
+		c = c+1
+		n = n-p
+	}
+	return c
+}
+
+func remainder(n, p){
+	return n - p * integerDivision(n, p)	
+}
+
