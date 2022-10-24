@@ -7,19 +7,28 @@ import (
 if a>b then 
 	GCD(a,b) = GCD(a-b, b)
 
+
+EuclidGCD(a,b):
+	while != b
+		if a> b
+			a<- a-b
+		else
+			b<- b-a
+	return a
+
 Breaking down:
 	Any shared divisor of a and b must also be a divisor of a-b
 	Any shared divisor of a - b and b must also be a divisor of a 
 */
-func GCD(a, b int){
-	// d:= 1
-	// m:= min(a, b)
-	// for (p:=1; p <= m; p++){
-	// 	if( p%a === 0 & p%b ===0){
-	// 		d = p
-	// 	}
-	// }
-	// return d
+func EuclidGCD(a, b int){
+	d:= 1
+	m:= min(a, b)
+	for (p:=1; p <= m; p++){
+		if( p%a === 0 & p%b ===0){
+			d = p
+		}
+	}
+	return d
 }
 
 func main(){
