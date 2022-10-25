@@ -19,12 +19,17 @@ import "fmt"
 func main() {
 	fmt.Println("Let's get started!!")
 
-	var j int
-	var x float64
-	var yo string
-	var u uint
-	var symbol byte
-	var statment bool
+	var j int = 7 
+ 	var x float64 = 2.3
+	var yo string = "Hello"
+	var u uint = 14
+	var symbol byte = 'H'
+	var statment bool = true
 
-	fmt.Println(j, x, yo, u, symbol, statment)
+	fmt.Println(j)
+	fmt.Println(x)
+	fmt.Println(yo)
+	fmt.Println(u)
+	fmt.Println(symbol)
+	fmt.Println(statment)
 }
