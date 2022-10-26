@@ -19,8 +19,8 @@ import "fmt"
 func main() {
 	fmt.Println("Let's get started!!")
 
-	var j int = 7 
- 	var x float64 = 2.3
+	var j int = 7
+	var x float64 = 2.3
 	var yo string = "Hello"
 	var u uint = 14
 	var symbol byte = 'H'
@@ -32,4 +32,15 @@ func main() {
 	fmt.Println(u)
 	fmt.Println(symbol)
 	fmt.Println(statment)
+
+	// shorthand declarations
+	i := -6 // this is an int if you want uint you need to be explicit
+	hi := "Yo! "
+	k := 34 // automaticallly an int
+
+	// we can do arthimertic on numeric variables
+	fmt.Println(i + j*(2*k))
+	fmt.Println(2*x - 3.16)
+	fmt.Println(hi + yo)
+
 }
