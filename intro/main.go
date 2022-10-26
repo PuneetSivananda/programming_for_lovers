@@ -19,7 +19,7 @@ import "fmt"
 func main() {
 	fmt.Println("Let's get started!!")
 
-	var j int = 7
+	var j int = 14
 	var x float64 = 2.3
 	var yo string = "Hello"
 	var u uint = 14
@@ -39,8 +39,14 @@ func main() {
 	k := 34 // automaticallly an int
 
 	// we can do arthimertic on numeric variables
-	fmt.Println(i + j*(2*k))
+	fmt.Println((i + j) * 2 * k)
 	fmt.Println(2*x - 3.16)
 	fmt.Println(hi + yo)
 
+	// integer division and throws away the remainder
+	fmt.Println(j / i)
+	fmt.Println(k / j)
+
+	// if we want the actual value we use type conversion
+	fmt.Println(float64(k) / float64(j))
 }
