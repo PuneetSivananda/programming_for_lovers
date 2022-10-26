@@ -1,3 +1,3 @@
-module programming_for_lovers
+module github.com/programming_for_lovers
 
-go 1.17
+go 1.19
