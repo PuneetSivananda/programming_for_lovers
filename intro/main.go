@@ -68,4 +68,38 @@ func main() {
 	// fmt.Println(j * x) // strict compiler
 	fmt.Println(float64(j) * x)
 
+	// n := SumTwoInts(x, x)
+	// fmt.Println(n)
+
+	// w, z := DoubleAndDuplicate(m)
+	// fmt.Println(w, z)
+	n := 17
+	fmt.Println(AddOne(n))
+	fmt.Println(n)
+
+	o := SumTwoInts(n, p)
+	fmt.Println(o)
+}
+
+func AddOne(n int) int {
+	n = n + 1
+	return n
+	// n is destroyed after the return and returns the copy
+}
+
+// SumTwoInts takes two integers and returns their sum
+func SumTwoInts(a int, b int) int {
+	return a + b
+}
+
+func DoubleAndDuplicate(x float64) (float64, float64) {
+	return 2.0 * x, 2.0 * x
+}
+
+func Pi() float64 {
+	return 3.14
+}
+
+func PrintHi() {
+	fmt.Println("Hi")
 }
