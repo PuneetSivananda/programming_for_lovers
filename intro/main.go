@@ -49,5 +49,23 @@ func main() {
 
 	// if we want the actual value we use type conversion
 	fmt.Println(float64(k) / float64(j))
-	// changes after updating emailid
+
+	// not all type conversions will work
+
+	var ok bool = bool(false)
+	fmt.Println(ok)
+
+	// cannot convert int to unint coorectly
+	var p int = -187
+	var s uint = uint(p)
+
+	fmt.Println(s)
+
+	m := 9223372036854775807
+	fmt.Println(m + 1)
+	// finite amount of space for any value integer can take in the memory 2^63-1
+
+	// fmt.Println(j * x) // strict compiler
+	fmt.Println(float64(j) * x)
+
 }
