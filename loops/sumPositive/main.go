@@ -10,11 +10,11 @@ func main() {
 }
 
 func SumPositive(n int) int {
-	p := 0
+	sum := 0
 	i := 0
 	for i <= n {
-		p += i
-		i += 1
+		sum += i
+		i++
 	}
-	return p
+	return sum
 }
