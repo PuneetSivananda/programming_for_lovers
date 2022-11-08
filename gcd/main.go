@@ -29,11 +29,10 @@ func TrivialGCD(a, b int) int {
 	// return Y
 
 	for p := 1; p <= m; p++ {
-		if a%p == 0 {
-			if b%p == 0 {
-				d = p
-			}
+		if a%p == 0 && b%p == 0 {
+			d = p
 		}
+
 	}
 	return d
 }
