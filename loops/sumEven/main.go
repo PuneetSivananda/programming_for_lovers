@@ -4,17 +4,15 @@ import "fmt"
 
 func main() {
 	fmt.Println("Sum even nums output:")
-	n := 5
+	n := 10
 	m := SumEven(n)
 	fmt.Println(m)
 }
 
 func SumEven(n int) int {
 	sum := 0
-	for i := 0; i <= n; i++ {
-		if i%2 == 0 {
-			sum += i
-		}
+	for i := 2; i <= n; i = i + 2 {
+		sum += i
 	}
 	return sum
 }
