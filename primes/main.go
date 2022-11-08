@@ -16,7 +16,8 @@ func main() {
 	list[len(list)-1] = 43
 	fmt.Println(list)
 
-	fmt.Println(TrivialPrimeFinder(10))
+	primeArray := TrivialPrimeFinder(10)
+	fmt.Println(primeArray)
 }
 
 // Arrays have a constant sizes in go
@@ -45,4 +46,20 @@ func IsPrime(p int) bool {
 		}
 	}
 	return true
+}
+
+// SieveOfEratosthenes takes an integer n and returns a slice of n+1 booleans
+// primeArray where primeArray[p] is true if p is prime and false if otherwise
+// It implements the SieveOfErastosthenes approach
+func SieveOfEratosthenes(n int) []bool {
+	primeArray := make([]bool, n+1)
+	// set everything to prime other than 0 and 1
+	for k := 2; k <= n; k++ {
+
+	}
+
+	for p := 2; float64(p) <= math.Sqrt(n); p++ {
+
+	}
+	return primeArray
 }
