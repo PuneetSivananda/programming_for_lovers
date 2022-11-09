@@ -2,7 +2,9 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"math"
+	"time"
 )
 
 func main() {
@@ -16,8 +18,20 @@ func main() {
 	list[len(list)-1] = 43
 	fmt.Println(list)
 
-	primeArray := TrivialPrimeFinder(10)
-	fmt.Println(primeArray)
+	n := 10000000
+
+	start := time.Now()
+	TrivialPrimeFinder(n)
+	// fmt.Println(primeArray)
+	elapsed := time.Since(start)
+	log.Printf("TrivialPrimeFinder took %s", elapsed)
+
+	start2 := time.Now()
+	SieveOfEratosthenes(n)
+	// fmt.Println(primeArray2)
+	elapsed2 := time.Since(start2)
+	log.Printf("SieveOfEratosthenes took %s", elapsed2)
+
 }
 
 // Arrays have a constant sizes in go
@@ -53,13 +67,29 @@ func IsPrime(p int) bool {
 // It implements the SieveOfErastosthenes approach
 func SieveOfEratosthenes(n int) []bool {
 	primeArray := make([]bool, n+1)
+
 	// set everything to prime other than 0 and 1
 	for k := 2; k <= n; k++ {
-
+		primeArray[k] = true
 	}
 
-	for p := 2; float64(p) <= math.Sqrt(n); p++ {
+	// range over primeArray and cross of multiples of the first prime that we find
+	for p := 2; float64(p) <= math.Sqrt(float64(n)); p++ {
+		if primeArray[p] == true {
+			primeArray = CrossOfMultiples(primeArray, p)
+		}
+	}
+	return primeArray
+}
 
+// takes a boolean sliec and integer p and crosses of multiples of p
+// meaning turning these multiples to false in the slice
+// it returns the slice obtainer as a result
+func CrossOfMultiples(primeArray []bool, p int) []bool {
+	n := len(primeArray) - 1
+	for k := 2 * p; k <= n; k += p {
+		// all these multiples must be made composite
+		primeArray[k] = false
 	}
 	return primeArray
 }
