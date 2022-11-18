@@ -6,7 +6,19 @@ import (
 )
 
 func otherComplement(text string) string {
-	return ""
+	returnString := ""
+	for _, s := range text {
+		if string(s) == "a" {
+			returnString += "t"
+		} else if string(s) == "t" {
+			returnString += "a"
+		} else if string(s) == "g" {
+			returnString += "c"
+		} else if string(s) == "c" {
+			returnString += "g"
+		}
+	}
+	return returnString
 }
 
 var complementString = strings.NewReplacer(
@@ -25,6 +37,8 @@ func main() {
 	var stringA string
 	fmt.Println("Enter a string to compute reverseCompliment")
 	fmt.Scanln(&stringA)
+	c1 := otherComplement(stringA)
 	c := complementString.Replace(stringA)
+	fmt.Println("OtherCompliment=>", Reverse(c1))
 	fmt.Println(Reverse(c))
 }
