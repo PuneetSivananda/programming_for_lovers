@@ -9,6 +9,23 @@ func main() {
 	fmt.Println("More on arrays/slices.")
 }
 
+func Max(list []int) int {
+	var m int
+	// range over and update if we find a bigger value
+	for i := 0; i < len(list); i++ {
+		if list[i] > m {
+			m = list[i]
+		}
+	}
+	return m
+}
+
+// // ListPrimes takes an integer n and returns a list of all prime numbers up to and including n.
+// func ListPrimes(n int) []int {
+// 	primes := make([]int, ???)
+// 	return primes
+// }
+
 // SieveOfEratosthenes takes an integer n and returns a slice of n+1 booleans
 // primeArray where primeArray[p] is true if p is prime and false if otherwise
 // It implements the SieveOfErastosthenes approach
