@@ -16,7 +16,7 @@ func otherComplement(text string) string {
 		'G': "C",
 		'C': "G",
 	}
-	returnString := ""
+	var returnString string
 	for _, s := range text {
 		returnString += dictionary[s]
 	}
