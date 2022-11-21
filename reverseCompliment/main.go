@@ -6,18 +6,21 @@ import (
 )
 
 func otherComplement(text string) string {
+	dictionary := map[rune]string{
+		'a': "t",
+		't': "a",
+		'g': "c",
+		'c': "g",
+		'A': "T",
+		'T': "A",
+		'G': "C",
+		'C': "G",
+	}
 	returnString := ""
 	for _, s := range text {
-		if string(s) == "a" {
-			returnString += "t"
-		} else if string(s) == "t" {
-			returnString += "a"
-		} else if string(s) == "g" {
-			returnString += "c"
-		} else if string(s) == "c" {
-			returnString += "g"
-		}
+		returnString += dictionary[s]
 	}
+	fmt.Println(returnString)
 	return returnString
 }
 
