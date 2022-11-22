@@ -7,6 +7,15 @@ import (
 
 func main() {
 	fmt.Println("More on arrays/slices.")
+
+	a := make([]int, 3) // slice of len 3
+	var b [3]int        //array of len3
+
+	ChangeFirst1Slice(a)
+	ChangeFirst1Array(b)
+
+	fmt.Println(a)
+	fmt.Println(b)
 }
 
 func Max(list []int) int {
@@ -21,6 +30,26 @@ func Max(list []int) int {
 		}
 	}
 	return m
+}
+
+// Sum takes the slice of integers and returns the sum of all the values in the slice
+func Sum(a []int) int {
+	var s int
+
+	for _, value := range a {
+		s += value
+	}
+
+	return s
+}
+
+// Passing a param as a slice is possible
+func ChangeFirst1Slice(list []int) {
+	list[0] = 1 // we can edit a slice
+}
+
+func ChangeFirst1Array(list [3]int) {
+	list[0] = 1 // we are going to deal with a copy of the array
 }
 
 // // ListPrimes takes an integer n and returns a list of all prime numbers up to and including n.
