@@ -16,6 +16,12 @@ func main() {
 
 	fmt.Println(a)
 	fmt.Println(b)
+
+	a = append(a, 5) // adds 5 to slice
+	fmt.Println(a)
+	n := 31
+	primes := ListPrimes(n)
+	fmt.Println(primes)
 }
 
 func Max(list []int) int {
@@ -52,11 +58,20 @@ func ChangeFirst1Array(list [3]int) {
 	list[0] = 1 // we are going to deal with a copy of the array
 }
 
-// // ListPrimes takes an integer n and returns a list of all prime numbers up to and including n.
-// func ListPrimes(n int) []int {
-// 	primes := make([]int, ???)
-// 	return primes
-// }
+// ListPrimes takes an integer n and returns a list of all prime numbers up to and including n.
+func ListPrimes(n int) []int {
+	primes := make([]int, 0) // great if you dont know inital len
+	primeBooleanArray := SieveOfEratosthenes(n)
+	// boolean variables where p th element is true if prime
+
+	for p, isPrime := range primeBooleanArray {
+		if isPrime {
+			primes = append(primes, p)
+		}
+	}
+
+	return primes
+}
 
 // SieveOfEratosthenes takes an integer n and returns a slice of n+1 booleans
 // primeArray where primeArray[p] is true if p is prime and false if otherwise
