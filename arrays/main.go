@@ -10,6 +10,9 @@ func main() {
 }
 
 func Max(list []int) int {
+	if len(list) == 0 {
+		panic("Empty list passed to Max()")
+	}
 	var m int
 	// range over and update if we find a bigger value
 	for i := 0; i < len(list); i++ {
