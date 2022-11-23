@@ -40,4 +40,13 @@ func main() {
 	}
 	fmt.Println(electoralVotes)
 
+	dict2 := make(map[string]int)
+	dict2["Love"] = 0
+	fmt.Println(dict2["Love"])
+	BoostLove(dict2)
+	fmt.Println(dict2["Love"])
+}
+
+func BoostLove(dict map[string]int) {
+	dict["Love"] = 100
 }
