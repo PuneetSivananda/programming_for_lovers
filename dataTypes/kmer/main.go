@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
 func main() {
@@ -30,6 +31,24 @@ func main() {
 	a = append(a[:3], a[4:]...)
 	fmt.Println(a)
 
+	pattern := "ATA"
+	text := "ATATA"
+	fmt.Println(strings.Count(text, pattern))
+	fmt.Println(CountPattern(pattern, text))
 }
 
 // lets count the number of occurences a pattern occures in a text as a substring
+
+func CountPattern(pattern, text string) int {
+	count := 0
+	k := len(pattern)
+	n := len(text)
+	// range over the substrings of text, and increment the count
+	for i := 0; i < n-k+1; i++ {
+		// does the substring of text of length k, starting at position i match pattern?
+		if text[i:i+k] == pattern {
+			count++
+		}
+	}
+	return count
+}
