@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	fmt.Println("Frequent words and maps")
@@ -45,8 +47,68 @@ func main() {
 	fmt.Println(dict2["Love"])
 	BoostLove(dict2)
 	fmt.Println(dict2["Love"])
+
+	// find Freq words problem
+	text := "ACGTTTTGAGACGACGTTT"
+	k := 3
+	fmt.Println(FindFrequentWords(text, k))
 }
 
 func BoostLove(dict map[string]int) {
 	dict["Love"] = 100
+}
+
+func FindFrequentWords(text string, k int) []string {
+	freqPatterns := make([]string, 0)
+
+	freqMap := FrequencyMap(text, k)
+	max := MaxValue(freqMap)
+
+	// range over the freq map, looking for strings achieveing the max num of values
+	for pattern, value := range freqMap {
+		if value == max {
+			// append the paater to freqpattern list
+			freqPatterns = append(freqPatterns, pattern)
+		}
+	}
+
+	return freqPatterns
+}
+
+// takes a map of strings as input and returns the max value of the map
+func MaxValue(freqMap map[string]int) int {
+	m := 0
+
+	firstTimeThrough := true
+
+	for _, value := range freqMap {
+		if firstTimeThrough == true || value > m {
+			m = value
+			firstTimeThrough = false
+		}
+	}
+	return m
+}
+
+// takes a string, and k int and returns each k-mer substring
+func FrequencyMap(text string, k int) map[string]int {
+	freq := make(map[string]int)
+
+	for j := 0; j < len(text)-k+1; j++ {
+		pattern := text[j : j+k]
+		// method1
+		/*
+			// does freq of pattern exist
+			_, exists := freq[pattern]
+			if !exists {
+				freq[pattern] = 1
+			} else {
+				freq[pattern]++
+			}
+		*/
+		// method2: map for counting
+		freq[pattern]++
+	}
+
+	return freq
 }
