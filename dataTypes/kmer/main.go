@@ -21,5 +21,15 @@ func main() {
 	fmt.Println(a[3:5])
 
 	// given a slice a how can we delete at elem of a given index
+	ix := 2
+	a = append(a[:ix], a[ix+1:]...)
+	fmt.Println(a)
+
+	a[1] = a[3]
+	fmt.Println(a)
+	a = append(a[:3], a[4:]...)
+	fmt.Println(a)
 
 }
+
+// lets count the number of occurences a pattern occures in a text as a substring
