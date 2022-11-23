@@ -35,6 +35,8 @@ func main() {
 	text := "ATATA"
 	fmt.Println(strings.Count(text, pattern))
 	fmt.Println(CountPattern(pattern, text))
+	fmt.Println(CountPattern2(pattern, text))
+
 }
 
 // lets count the number of occurences a pattern occures in a text as a substring
@@ -51,4 +53,24 @@ func CountPattern(pattern, text string) int {
 		}
 	}
 	return count
+}
+
+// General pattern
+func CountPattern2(pattern, text string) int {
+	hits := StartingIndices(pattern, text)
+	return len(hits)
+}
+
+func StartingIndices(pattern, text string) []int {
+	positions := make([]int, 0)
+	k := len(pattern)
+	n := len(text)
+	// range over the substrings of text, and increment the count
+	for i := 0; i < n-k+1; i++ {
+		// does the substring of text of length k, starting at position i match pattern?
+		if text[i:i+k] == pattern {
+			positions = append(positions, i)
+		}
+	}
+	return positions
 }
