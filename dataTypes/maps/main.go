@@ -19,6 +19,25 @@ func main() {
 	polls["NY"] = 0.789 // no need to append
 	polls["NE"] = 0.401
 	polls["FL"] = 0.500
-	fmt.Println(polls)
 	fmt.Println(len(polls))
+	// to delete a k,v in a map
+	delete(polls, "FL")
+	fmt.Println(len(polls))
+	for state, percentage := range polls {
+		fmt.Println("The polling percentage of ", state, "is ", percentage)
+	}
+
+	b := [4]float64{8.1, 0.0, -34.56, 21.22}
+	fmt.Println(b)
+	primes := []int{2, 3, 5, 7, 11}
+	fmt.Println(primes)
+
+	//map literls declare shortform
+	electoralVotes := map[string]uint{
+		"PA": 29,
+		"OH": 32,
+		"TX": 37,
+	}
+	fmt.Println(electoralVotes)
+
 }
