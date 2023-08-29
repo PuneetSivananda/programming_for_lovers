@@ -1,9 +1,6 @@
 function findLargest(arr) {
-  let MAX = 0;
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] > MAX) MAX = arr[i];
-  }
-  return MAX;
+  console.log(arr.sort((a, b) => a - b));
+  return arr.sort((a, b) => a - b)[arr.length - 1];
 }
 
 function largestOfFour(arr) {
@@ -20,5 +17,7 @@ console.log(
     [13, 27, 18, 26],
     [32, 35, 37, 39],
     [1000, 1001, 857, 1],
+    [4, -10, 18, 21],
+    [-72, -3, -17, -10],
   ])
 );
