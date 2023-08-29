@@ -1,5 +1,17 @@
+function findLargest(arr) {
+  let MAX = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > MAX) MAX = arr[i];
+  }
+  return MAX;
+}
+
 function largestOfFour(arr) {
-  return arr;
+  const largest = [];
+  arr.forEach((element) => {
+    largest.push(findLargest(element));
+  });
+  return largest;
 }
 
 console.log(
