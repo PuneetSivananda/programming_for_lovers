@@ -182,7 +182,6 @@ async function get_similarity(list_sentences) {
     list_sentences,
     callback.bind(this)
   );
-  console.log(embeddings);
 }
 
 onClickAnalyzeSentences();
