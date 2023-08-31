@@ -6,13 +6,22 @@ import "fmt"
 
 func main() {
 	arr := []int{2, 3, 5, 4, 5, 3, 4}
+	res := []int{}
 	mapA := make(map[int]int)
 	for i := 0; i < len(arr); i++ {
-		if mapA[i] != 0 {
+		_, ok := mapA[arr[i]]
+		if !ok {
+			mapA[arr[i]] += 1
+		} else {
 			mapA[arr[i]] += 1
 		}
-
-		fmt.Println(mapA[arr[i]])
 	}
-	fmt.Println(mapA)
+	for k, v := range mapA {
+		if v == 1 {
+
+			res = append(res, k)
+		}
+	}
+	fmt.Println(res)
+
 }
