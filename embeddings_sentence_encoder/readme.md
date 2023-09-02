@@ -20,3 +20,24 @@ Vector Search
 
 - Embeddings
   - https://github.com/veekaybee/what_are_embeddings/blob/main/embeddings.pdf
+
+## Overview:
+
+- Create a go tool that does
+  - Clean the text
+  - Get all Named Entities
+  - Get subject, object, verb for each entity
+    - Identify adjectives
+  - Create triples
+
+## Fine details of Workflow:
+- get data for search term
+- do nlp on text
+- add svo triples to graph - svo(subject verb object)
+- update node labels and properties
+- Dedup, clean, dedup and more clean
+- create in memory graph
+- generate embeddings
+- do ML
+
+- apply ML on the knowledge graph
