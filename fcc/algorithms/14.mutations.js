@@ -1,16 +1,16 @@
 function mutation(arr) {
-  const a1 = Array.from(new Set(arr[0]));
-  const a2 = Array.from(new Set(arr[1]));
+  const a1 = Array.from(new Set(arr[0].toLowerCase()));
+  const a2 = Array.from(new Set(arr[1].toLowerCase()));
   let flag = false;
   a2.every((item) => {
-    if (a1.includes(item)) flag = true;
+    if (a1.indexOf(item) > 0) flag = true;
     else {
       flag = false;
-      return false;
+      return;
     }
   });
   return flag;
 }
 
-console.log(mutation(["hello", "neo"]));
-console.log(mutation(["floor", "for"]));
+console.log(mutation(["hello", "Hello"]));
+// console.log(mutation(["floor", "for"]));
