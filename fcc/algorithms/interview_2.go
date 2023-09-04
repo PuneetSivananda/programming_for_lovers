@@ -5,25 +5,29 @@ import (
 	"sync"
 )
 
-func Add(wg *sync.WaitGroup, n1, n2 int, c1 chan int) {
+func Add(n1, n2 int, wg *sync.WaitGroup, c1 chan int) {
 	defer wg.Done()
 	c1 <- n1 + n2
 }
 
 func main() {
-	wg := &sync.WaitGroup{}
-	fmt.Println("Hello, 世界")
+	wg := new(sync.WaitGroup)
+
 	c1 := make(chan int, 4)
 	// defer close(c1)
 
-	//var chan c1 int
 	wg.Add(1)
-	go Add(wg, 5, 6, c1)
-	go Add(wg, 2, 3, c1)
-	wg.Wait()
+	go Add(5, 6, wg, c1)
+	wg.Add(1)
+	go Add(2, 3, wg, c1)
 
-	for res := range c1 {
-		wg.Add(1)
-		fmt.Println(res)
+	go func() {
+		wg.Wait()
+		close(c1)
+	}()
+
+	for item := range c1 {
+		fmt.Println(item)
 	}
+
 }
