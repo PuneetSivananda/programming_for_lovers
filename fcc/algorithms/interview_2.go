@@ -20,7 +20,6 @@ func main() {
 	go Add(5, 6, wg, c1)
 	wg.Add(1)
 	go Add(2, 3, wg, c1)
-
 	wg.Wait()
 	close(c1)
 
