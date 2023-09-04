@@ -1,15 +1,15 @@
 function getIndexToIns(arr, num) {
-  let ix;
-  if (num <= arr[0]) return 0;
-  if (num >= arr[arr.length - 1]) return arr.length;
-  for (let i = 0; i <= arr.length; i++) {
-    if (arr[i] < num && num < arr[i + 1]) {
-      ix = i + 1;
+  const newArr = arr.sort((a, b) => a - b);
+  if (num <= newArr[0]) return 0;
+  if (num >= newArr[newArr.length - 1]) return newArr.length;
+  for (let i = 0; i <= newArr.length; i++) {
+    if (newArr[i] >= num) {
+      return i;
     }
   }
-  return ix;
+  return newArr.length;
 }
 
-console.log(getIndexToIns([40, 60], 50));
-console.log(getIndexToIns([3, 10, 5], 3));
-console.log(getIndexToIns([2, 5, 10], 15));
+// console.log(getIndexToIns([40, 60], 50));
+console.log(getIndexToIns([5, 3, 20, 3], 5));
+// console.log(getIndexToIns([10, 20, 30, 40, 50], 30));
