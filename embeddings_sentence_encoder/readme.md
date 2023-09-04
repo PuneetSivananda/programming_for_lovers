@@ -41,3 +41,11 @@ Vector Search
 - do ML
 
 - apply ML on the knowledge graph
+
+* for gds use the sandbox not auradb
+* cytoscape.js use the api for creating graphs
+
+
+- Assignment to creat Custom NER 
+- follow up use case from Industry Expert
+  - https://www.newscatcherapi.com/blog/train-custom-named-entity-recognition-ner-model-with-spacy-v3
