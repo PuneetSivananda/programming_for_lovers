@@ -1,15 +1,10 @@
 function mutation(arr) {
   const a1 = Array.from(new Set(arr[0].toLowerCase()));
   const a2 = Array.from(new Set(arr[1].toLowerCase()));
-  let flag = false;
-  a2.every((item) => {
-    if (a1.indexOf(item) > 0) flag = true;
-    else {
-      flag = false;
-      return;
-    }
-  });
-  return flag;
+  for (let i = 0; i < a1.length; i++) {
+    if (a2.indexOf(a1[i] < 0)) return false;
+  }
+  return true;
 }
 
 console.log(mutation(["hello", "Hello"]));
