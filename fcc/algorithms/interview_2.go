@@ -21,10 +21,8 @@ func main() {
 	wg.Add(1)
 	go Add(2, 3, wg, c1)
 
-	go func() {
-		wg.Wait()
-		close(c1)
-	}()
+	wg.Wait()
+	close(c1)
 
 	for item := range c1 {
 		fmt.Println(item)
