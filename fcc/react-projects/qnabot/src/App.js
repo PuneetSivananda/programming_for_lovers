@@ -15,7 +15,7 @@ const App = () => {
   // 3. Setup references and state hooks
   const passageRef = useRef(null);
   const questionRef = useRef(null);
-  const [answer, setAnswers] = useState();
+  const [answers, setAnswers] = useState();
   const [model, setModel] = useState(null);
 
   // 4. Load Tensorflow Model
@@ -62,7 +62,7 @@ const App = () => {
           Ask a Question
           <input ref={questionRef} onKeyPress={answerQuestion} size="80"/>
           Answer
-          {answers?answers.map((ans, idx)=><div><b>Answer {idx+1} - </b>{ans.text}{ans.score}</div>):""}
+            {answers?answers.map((ans, idx)=><div><b>Answer {idx+1} - </b>{ans.text}{ans.score}</div>):""}
         </Fragment>}
       </header>
     </div>
