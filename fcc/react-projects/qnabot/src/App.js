@@ -13,17 +13,32 @@ import { Fragment } from "react";
 
 const App = () => {
   // 3. Setup references and state hooks
+  const passageRef = useRef(null);
+  const questionRef = useRef(null);
+  const [answer, setAnswer] = useState();
+  const [model, setModel] = useState(null);
 
   // 4. Load Tensorflow Model
-  const loadModel = async () => {};
+  const loadModel = async () => {
+    const loadedModel = await qna.load();
+    setModel(loadedModel);
+    console.log("Model Loaded");
+  };
 
   // 5. Handle Questions
   const answerQuestion = async (e) => {};
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    loadModel();
+  }, []);
 
   // 2. Setup input, question and result area
-  return <div className="App">Hello World</div>;
+  return (
+    <div className="App">
+      Hello World
+      <Loader />
+    </div>
+  );
 };
 
 export default App;
