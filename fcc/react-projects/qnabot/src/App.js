@@ -15,7 +15,7 @@ const App = () => {
   // 3. Setup references and state hooks
   const passageRef = useRef(null);
   const questionRef = useRef(null);
-  const [answer, setAnswer] = useState();
+  const [answer, setAnswers] = useState();
   const [model, setModel] = useState(null);
 
   // 4. Load Tensorflow Model
@@ -26,7 +26,16 @@ const App = () => {
   };
 
   // 5. Handle Questions
-  const answerQuestion = async (e) => {};
+  const answerQuestion = async (e) => {
+    if(e.which === 13 && model !=null){
+      console.log('Question Submitted')
+      const passage = passageRef.current.value
+      const question = questionRef.current.value
+      const answers = await model.findAnswers(question, passage)
+      setAnswers(answers)
+      console.log(answers)
+    }
+  };
 
   useEffect(() => {
     loadModel();
@@ -35,8 +44,27 @@ const App = () => {
   // 2. Setup input, question and result area
   return (
     <div className="App">
-      Hello World
-      <Loader />
+      <header className="App-header"> 
+        {model == null?
+        <div>
+          <div>Model Loading</div>  
+          <Loader 
+            type={"Puff"}
+            color={"#00BFFF"}
+            height={100}
+            width={100}
+          />
+        </div>
+        :
+        <Fragment>
+          Passage
+          <textarea ref={passageRef} rows="30" cols="100"></textarea>
+          Ask a Question
+          <input ref={questionRef} onKeyPress={answerQuestion} size="80"/>
+          Answer
+          {answers?answers.map((ans, idx)=><div><b>Answer {idx+1} - </b>{ans.text}{ans.score}</div>):""}
+        </Fragment>}
+      </header>
     </div>
   );
 };
