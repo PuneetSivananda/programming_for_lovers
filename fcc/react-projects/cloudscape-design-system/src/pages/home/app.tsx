@@ -6,7 +6,7 @@ import Container from "@cloudscape-design/components/container";
 import Header from "@cloudscape-design/components/header";
 import Navigation from "./components/navigation";
 import BreadCrumbs from "./components/breadcrumbs";
-
+import PreparedDashboardContent from "./components/prepared-dashboard-content";
 export default function App() {
   return (
     <>
@@ -38,7 +38,7 @@ export default function App() {
           breadcrumbs={<BreadCrumbs />}
           content={
             <ContentLayout header={<Header variant="h1" />}>
-              <Container>Hello World</Container>
+              <PreparedDashboardContent />
             </ContentLayout>
           }
         />
