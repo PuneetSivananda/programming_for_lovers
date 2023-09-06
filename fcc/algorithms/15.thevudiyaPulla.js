@@ -6,11 +6,12 @@ function findSubSetsWithSumZero(arr) {
   let sums = {};
   let currentSum = 0;
   let maxLength = 0;
+  for (let i = 0; i < arr.length; i++) {
+    console.log(i, arr[i]);
+  }
 }
 
-inputArr.forEach((item) => {
-  console.log(item);
-});
+findSubSetsWithSumZero(inputArr);
 
 /**
  * def find_subsets_with_sum_zero(arr):
