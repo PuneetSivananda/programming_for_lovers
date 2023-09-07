@@ -16,7 +16,7 @@ const columnDefinitions: TableProps["columnDefinitions"] = [
 
 export interface QualityPeportProps {
   quote: string;
-  notest: TableProps["items"];
+  notes: TableProps["items"];
 }
 
 export default function QualityReport({ quote, notes }: QualityPeportProps) {

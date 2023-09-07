@@ -19,8 +19,8 @@ export default function PreparedDashboardContent() {
         gridDefinition={[{ colspan: 12 }, { colspan: 8 }]}
         disableGutters={false}
       >
-        {/* <ProductionOverview metrics={productionMetrics} />
-        <Flavors data={variationData} items={breakdownItems} /> */}
+        <ProductionOverview metrics={productionMetrics} />
+        <Flavors data={variationData} items={breakdownItems} />
         <QualityReport quote={quote} notes={notes} />
       </Grid>
     </SpaceBetween>

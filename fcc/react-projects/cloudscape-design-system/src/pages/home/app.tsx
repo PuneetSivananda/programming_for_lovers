@@ -2,7 +2,6 @@ import "./styles.css";
 import TopNavigation from "@cloudscape-design/components/top-navigation";
 import AppLayout from "@cloudscape-design/components/app-layout";
 import ContentLayout from "@cloudscape-design/components/content-layout";
-import Container from "@cloudscape-design/components/container";
 import Header from "@cloudscape-design/components/header";
 import Navigation from "./components/navigation";
 import BreadCrumbs from "./components/breadcrumbs";
