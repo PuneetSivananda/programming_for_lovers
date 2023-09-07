@@ -12,6 +12,6 @@ export interface BreadcrumbsProps {
   active: BreadcrumbGroupProps.Item;
 }
 
-export default function BreadCrumbs() {
+export default function Breadcrumbs() {
   return <BreadcrumbGroup items={items} />;
 }

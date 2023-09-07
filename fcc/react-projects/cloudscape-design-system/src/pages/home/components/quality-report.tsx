@@ -14,13 +14,14 @@ const columnDefinitions: TableProps["columnDefinitions"] = [
   { header: "Unnoticed", cell: ({ unnoticed }) => unnoticed }
 ];
 
-export interface QualityPeportProps {
+export interface QualityReportProps {
   quote: string;
   notes: TableProps["items"];
 }
 
-export default function QualityReport({ quote, notes }: QualityPeportProps) {
-  const [showTasintNotes, setShowTastingNotes] = useState(false);
+export default function QualityReport({ quote, notes }: QualityReportProps) {
+  const [showTastingNotes, setShowTastingNotes] = useState(false);
+
   return (
     <Container header={<Header variant="h2">Quality report</Header>}>
       <Box variant="p">Report from latest tasting:</Box>
@@ -28,7 +29,7 @@ export default function QualityReport({ quote, notes }: QualityPeportProps) {
       <Button variant="normal" onClick={() => setShowTastingNotes(true)}>
         View tasting notes
       </Button>
-      {showTasintNotes ? (
+      {showTastingNotes ? (
         <Modal
           visible={true}
           onDismiss={() => setShowTastingNotes(false)}

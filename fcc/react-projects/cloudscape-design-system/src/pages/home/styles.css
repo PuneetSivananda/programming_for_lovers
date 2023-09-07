@@ -1,10 +1,12 @@
 body {
   margin: 0;
-  padding: 0;
+  /* padding: 0; */
 }
 
 #top-nav {
   position: sticky;
+  left: 0;
   top: 0;
-  z-index: 100z;
+  right: 0;
+  z-index: 1002;
 }
