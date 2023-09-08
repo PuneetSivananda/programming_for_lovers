@@ -1,6 +1,9 @@
-const results = fetch("https://jsonplaceholder.typicode.com/posts")
-  .then((res) => res.json())
-  .then((res) => console.log(res));
+(async () => {
+  const response = await fetch("https://jsonplaceholder.typicode.com/posts")
+    .then((res) => res.json())
+    .then((res) => res);
+  console.log(response);
+})();
 
 // const randomObj = {
 //     sample:"value",
