@@ -3,7 +3,12 @@ package main
 import "fmt"
 
 func AddNumbers(nos []int, c chan int) {
-	c <- 2
+	n := len(nos)
+	sum := 0
+	for i := 0; i < n; i++ {
+		sum = sum + nos[i]
+	}
+	c <- sum
 }
 
 func main() {
@@ -14,4 +19,5 @@ func main() {
 	go AddNumbers(s[len(s)/2:], c)
 	run1, run2 := <-c, <-c
 	fmt.Println(run1, run2)
+	fmt.Println(run1 + run2)
 }
