@@ -11,11 +11,8 @@ type Queue struct {
 }
 
 func (q *Queue) Insert(ele string) {
-	ix := len(q.data)
-	fmt.Println(ix)
 	q.data = append(q.data, ele)
-	fmt.Println(q.data)
-	//q.data[ix] = ele
+	// fmt.Println(q.data)
 }
 
 func (q Queue) Display() {
