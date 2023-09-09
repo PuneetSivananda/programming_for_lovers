@@ -6,6 +6,8 @@ function findSubSetsWithSumZero(arr) {
   let sums = {};
   let currentSum = 0;
   let maxLength = 0;
+  sums[0] = [-1];
+  console.log(sums);
   for (let i = 0; i < arr.length; i++) {
     console.log(i, arr[i]);
   }
