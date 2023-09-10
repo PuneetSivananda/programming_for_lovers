@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func Fino(nos []int, c chan int) {
+func AddNumbers(nos []int, c chan int) {
 	n := len(nos)
 	sum := 0
 	for i := 0; i < n; i++ {

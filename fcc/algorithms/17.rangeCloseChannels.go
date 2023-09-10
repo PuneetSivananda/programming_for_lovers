@@ -9,7 +9,6 @@ func Fibonacci(n int, c chan int) {
 		c <- a
 		a, b = b, a+b
 	}
-
 }
 
 func main() {
