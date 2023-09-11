@@ -4,12 +4,12 @@ NUM = 20
 
 def check_if_prime(n):
     is_prime = False
-    for i in range(n):
-        if (i == 0):
-            continue
+    for i in range(1, n):
         if (n % i == 0):
             is_prime = False
-            break
+            continue
+        elif (n//i > 0):
+            is_prime = False
         else:
             is_prime = True
     return is_prime
@@ -35,6 +35,6 @@ def fibonacci():
         print(counts[i])
 
 
-fibonacci()
+# fibonacci()
 
-# prime_nos()
+prime_nos()
