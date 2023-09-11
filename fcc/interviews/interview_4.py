@@ -1,26 +1,17 @@
 # get prime num bewrween 1 to 100
-NUM = 20
-
-
-def check_if_prime(n):
-    is_prime = False
-    for i in range(1, n):
-        if (n % i == 0):
-            is_prime = False
-            continue
-        elif (n//i > 0):
-            is_prime = False
-        else:
-            is_prime = True
-    return is_prime
+def check_if_prime(l, u):
+    for i in range(l, u+1):
+        if i > 1:
+            for num in range(2, i):
+                if (i % num) == 0:
+                    break
+            else:
+                if (i != None):
+                    print(i)
 
 
 def prime_nos():
-    for i in range(1, NUM):
-        if (check_if_prime(i)):
-            print(i)
-        else:
-            continue
+    print(check_if_prime(1, 100))
 
 
 def fibonacci():
