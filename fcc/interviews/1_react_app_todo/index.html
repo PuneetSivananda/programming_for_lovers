@@ -20,11 +20,11 @@
       function Todos({ list, onRemoveTodo }) {
         return (
           <ul>
-            {list.map((item) => (
+            {list.map((item, index) => (
               <li
-                key={item.name}
-                onClick={(e) => {
-                  console.log(e);
+                key={item.id}
+                onClick={() => {
+                  console.log(index, list[index]);
                 }}
               >
                 <span>{item.name}</span>
@@ -37,9 +37,9 @@
       const App = () => {
         const [value, setValue] = React.useState("");
         const [todos, setTodos] = React.useState([
-          { name: "Jordyn", isSelected: false },
-          { name: "Mikenzi", isSelected: false },
-          { name: "Jake", isSelected: false },
+          { name: "Jordyn", id: 1 },
+          { name: "Mikenzi", id: 2 },
+          { name: "Jake", id: 3 },
         ]);
 
         const handleRemoveTodo = (name) => {
@@ -63,7 +63,11 @@
             <button
               onClick={() => {
                 setValue("");
-                setTodos([...todos, value]);
+                const newItem = {
+                  name: value,
+                  isSelected: false,
+                };
+                setTodos([...todos, newItem]);
               }}
             >
               Add
