@@ -8,7 +8,13 @@ type Item struct {
 }
 
 func main() {
-	var list_of_characters = []struct {
+	SolveUsingMap()
+}
+
+func SolveUsingStruct(){}
+
+func SolveUsingMap(){
+	var list_of_characters = []Item {
 		name string json:"name"
 		age  int    json:"age"
 	}{
