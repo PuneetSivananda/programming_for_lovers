@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Reference looked on https://dev.to/sanderdebr/creating-a-crud-app-in-react-with-hooks-3jml -->
 <html>
   <head>
     <title>First React App</title>
@@ -19,31 +20,55 @@
       function Todos({ list, onRemoveTodo }) {
         return (
           <ul>
-            {list.map((name) => (
-              <li key={name}>
-                <span>{name}</span>
-                <button onClick={() => onRemoveTodo(name)}>X</button>
+            {list.map((item) => (
+              <li
+                key={item.name}
+                onClick={(e) => {
+                  console.log(e);
+                }}
+              >
+                <span>{item.name}</span>
+                <button onClick={() => onRemoveTodo(item.name)}>X</button>
               </li>
             ))}
           </ul>
         );
       }
       const App = () => {
-        const [friends, setFriends] = React.useState([
-          "Jordyn",
-          "Mikenzi",
-          "Jake",
+        const [value, setValue] = React.useState("");
+        const [todos, setTodos] = React.useState([
+          { name: "Jordyn", isSelected: false },
+          { name: "Mikenzi", isSelected: false },
+          { name: "Jake", isSelected: false },
         ]);
 
         const handleRemoveTodo = (name) => {
-          const newTodos = friends.filter((friend) => friend !== name);
-          setFriends(newTodos);
+          const newTodos = todos.filter((todo) => todo.name !== name);
+          setTodos(newTodos);
         };
+
+        // React.useEffect(() => {
+        //   console.log("here");
+        // }, [setTodos]);
 
         return (
           <div>
             <h1>Todos:</h1>
-            <Todos list={friends} onRemoveTodo={handleRemoveTodo} />
+            <input
+              onChange={(e) => {
+                setValue(e.target.value);
+              }}
+              value={value}
+            ></input>
+            <button
+              onClick={() => {
+                setValue("");
+                setTodos([...todos, value]);
+              }}
+            >
+              Add
+            </button>
+            <Todos list={todos} onRemoveTodo={handleRemoveTodo} />
           </div>
         );
       };
