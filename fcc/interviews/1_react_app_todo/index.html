@@ -16,13 +16,13 @@
     <div id="app"></div>
 
     <script type="text/babel">
-      function FriendsList(props) {
+      function Todos({ list, onRemoveTodo }) {
         return (
           <ul>
-            {props.list.map((name) => (
+            {list.map((name) => (
               <li key={name}>
                 <span>{name}</span>
-                <button onClick={() => props.onRemoveFriend(name)}>X</button>
+                <button onClick={() => onRemoveTodo(name)}>X</button>
               </li>
             ))}
           </ul>
@@ -35,14 +35,15 @@
           "Jake",
         ]);
 
-        const handleRemoveFriend = (name) => {
-          const newFriends = friends.filter((friend) => friend !== name);
-          setFriends(newFriends);
+        const handleRemoveTodo = (name) => {
+          const newTodos = friends.filter((friend) => friend !== name);
+          setFriends(newTodos);
         };
 
         return (
           <div>
-            <FriendsList list={friends} onRemoveFriend={handleRemoveFriend} />
+            <h1>Todos:</h1>
+            <Todos list={friends} onRemoveTodo={handleRemoveTodo} />
           </div>
         );
       };
