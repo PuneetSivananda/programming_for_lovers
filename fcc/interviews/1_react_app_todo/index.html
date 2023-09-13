@@ -28,35 +28,24 @@
           </ul>
         );
       }
+      const App = () => {
+        const [friends, setFriends] = React.useState([
+          "Jordyn",
+          "Mikenzi",
+          "Jake",
+        ]);
 
-      class App extends React.Component {
-        constructor(props) {
-          super(props);
-          this.state = {
-            friends: ["Jordyn", "Mikenzi", "Jake"],
-          };
+        const handleRemoveFriend = (name) => {
+          const newFriends = friends.filter((friend) => friend !== name);
+          setFriends(newFriends);
+        };
 
-          this.handleRemoveFriend = this.handleRemoveFriend.bind(this);
-        }
-        handleAddFriend(name) {}
-        handleRemoveFriend(name) {
-          this.setState((currentState) => {
-            return {
-              friends: currentState.friends.filter((friend) => friend !== name),
-            };
-          });
-        }
-        render() {
-          return (
-            <div>
-              <FriendsList
-                list={this.state.friends}
-                onRemoveFriend={this.handleRemoveFriend}
-              />
-            </div>
-          );
-        }
-      }
+        return (
+          <div>
+            <FriendsList list={friends} onRemoveFriend={handleRemoveFriend} />
+          </div>
+        );
+      };
 
       ReactDOM.render(<App />, document.getElementById("app"));
     </script>
