@@ -17,17 +17,29 @@
     <div id="app"></div>
 
     <script type="text/babel">
-      function Todos({ list, onRemoveTodo }) {
+      function Todos({ list, onRemoveTodo, handleToggle }) {
         return (
           <ul>
             {list.map((item, index) => (
               <li
                 key={item.id}
-                onClick={() => {
-                  console.log(index, list[index]);
+                onClick={(e) => {
+                  console.log(e.currentTarget);
+                  e.preventDefault();
+                  handleToggle(e.currentTarget.id);
                 }}
               >
-                <span>{item.name}</span>
+                <span
+                  style={
+                    item.isSelected
+                      ? { textDecoration: "line-through" }
+                      : {
+                          textDecoration: "none",
+                        }
+                  }
+                >
+                  {item.name}
+                </span>
                 <button onClick={() => onRemoveTodo(item.name)}>X</button>
               </li>
             ))}
@@ -37,9 +49,9 @@
       const App = () => {
         const [value, setValue] = React.useState("");
         const [todos, setTodos] = React.useState([
-          { name: "Jordyn", id: 1 },
-          { name: "Mikenzi", id: 2 },
-          { name: "Jake", id: 3 },
+          { name: "Jordyn", id: 1, isSelected: false },
+          { name: "Mikenzi", id: 2, isSelected: false },
+          { name: "Jake", id: 3, isSelected: false },
         ]);
 
         const handleRemoveTodo = (name) => {
@@ -66,6 +78,7 @@
                 const newItem = {
                   name: value,
                   isSelected: false,
+                  id: todos.length + 1,
                 };
                 setTodos([...todos, newItem]);
               }}
