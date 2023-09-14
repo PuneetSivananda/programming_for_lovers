@@ -26,11 +26,12 @@ func GetAnagrams(words []string) [][]string {
 			result[SortString(words[i])] = []string{words[i]}
 		}
 	}
-	fmt.Println(result)
-	return [][]string{
-		{"one"},
-		{"two", "three"},
+	// fmt.Println(result)
+	var returnResult [][]string
+	for _, v := range result {
+		returnResult = append(returnResult, v)
 	}
+	return returnResult
 }
 
 func main() {
