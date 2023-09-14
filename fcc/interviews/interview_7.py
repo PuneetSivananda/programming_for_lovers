@@ -1,3 +1,10 @@
+# hashmap = {}
+# for item in valuesA:
+#     chck if (item[vakue] present in haspmap)
+#     if no create a list with key as value, and append the value to its list
+#     next item check if exists append or create new
+
+
 valuesA = {'Ram': 'Pen', 'Shyam': 'copy',
            'Karim': 'Tab', 'Abhishek': 'Pen', 'Ajai': 'copy'}
 
@@ -15,16 +22,6 @@ def create_hashmap_values(values):
 
 print(create_hashmap_values(valuesA))
 
-# hashmap = {}
-# for item in valuesA:
-#     chck if (item[vakue] present in haspmap)
-#     if no create a list with key as value, and append the value to its list
-#     next item check if exists append or create new
-
-
-# {"Pen": []}
-
-
 """
 def get_if_crcular(item, substr):
     world = item + item
@@ -38,17 +35,18 @@ def get_if_crcular(item, substr):
 input_1 = input()
 substr = input()
 print(get_if_crcular(input_1, substr))
+"""
+
 
 lista = [[10, 20, 30], [20, 30, 40], [34, 45, 67]]
+# use extend instead of append
 
 
 def recurs_items(lista):
+    return_array = []
     for item in lista:
-        if (type(item) == 'list'):
-            recurs_items(item)
-        else:
-            print(item)
+        return_array.extend(item)
+    return return_array
 
 
 print(recurs_items(lista))
-"""
