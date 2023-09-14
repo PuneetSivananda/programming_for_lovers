@@ -4,16 +4,17 @@
 
 def get_anagrams(list_of_words):
     result = {}
+    return_data = []
     for word in list_of_words:
         x = "".join(sorted(word))
         if x in result:
             result[x].append(word)
         else:
             result[x] = [word]
-    for k, v in result.items():
-        print(k, v)
+    for _, v in result.items():
+        return_data.append(v)
 
-    return result
+    return return_data
 
 
 print(get_anagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))
