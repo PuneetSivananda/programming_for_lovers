@@ -24,9 +24,8 @@
               <li
                 key={item.id}
                 onClick={(e) => {
-                  console.log(e.currentTarget);
                   e.preventDefault();
-                  handleToggle(e.currentTarget.id);
+                  handleToggle(item.id);
                 }}
               >
                 <span
@@ -59,6 +58,10 @@
           setTodos(newTodos);
         };
 
+        const handleToggle = (id) => {
+          console.log(id);
+        };
+
         // React.useEffect(() => {
         //   console.log("here");
         // }, [setTodos]);
@@ -85,7 +88,11 @@
             >
               Add
             </button>
-            <Todos list={todos} onRemoveTodo={handleRemoveTodo} />
+            <Todos
+              list={todos}
+              onRemoveTodo={handleRemoveTodo}
+              handleToggle={handleToggle}
+            />
           </div>
         );
       };
