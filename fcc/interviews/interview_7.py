@@ -38,14 +38,17 @@ print(get_if_crcular(input_1, substr))
 """
 
 
-lista = [[10, 20, 30], [20, 30, 40], [34, 45, 67]]
+lista = [[10, 20, 30], [20, 30, 40], [34, 45, 67], 40]
 # use extend instead of append
 
 
 def recurs_items(lista):
     return_array = []
     for item in lista:
-        return_array.extend(item)
+        if (type(item) == int):
+            return_array.append(item)
+        else:
+            return_array.extend(item)
     return return_array
 
 
