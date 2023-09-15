@@ -1,0 +1,13 @@
+Tech Lead Full Stack_CMT
+Description
+The candidate will have experience developing UI development using React, Restful APIs development using Python, PostgreSQL, and Cloud Technologies development & deployment experience (AWS/Azure/GCP).
+
+•         Work with the Cisco CXTL team as a Full Stack Developer
+•         Create and enhance a RESTful API endpoint with Python and author technical documentation.
+•         Improve code quality by implementing Test Driven Development using React-testing-library.
+•         Troubleshoot complex issues by utilizing diagnostic tools and implementing effective solutions.
+•         Develop & Enhance UI using TypeScript and React as per the Wire Frames and requirements provided.
+•         Create and optimize complex queries using PostgreSQL and design tables
+•         Experience with developing, configuring and deploying applications on cloud stacks( AWS/Azure/GCP etc)
+•         Conduct peer review and provide feedback to team members.
+•         Work closely with Architects and Product owner to decompose the requirements into low level designs based on the Architecture. 
