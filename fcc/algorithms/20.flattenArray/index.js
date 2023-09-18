@@ -33,7 +33,7 @@ const arr = [
 
 const tempList = [];
 function processChild(objectA) {
-  tempList.push(objectA.name);
+  tempList.push({ name: objectA.name, age: objectA.age });
   if (objectA["child"]) {
     objectA["child"].forEach(processChild);
   }
@@ -46,7 +46,10 @@ for (obj in arr) {
     let result = processChild(arr[obj]);
     output.push(...result);
   } else {
-    output.push(arr[obj].name);
+    output.push({
+      name: arr[obj].name,
+      age: arr[obj].age,
+    });
   }
 }
 console.log(output);
