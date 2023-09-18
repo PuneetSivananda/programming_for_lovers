@@ -31,27 +31,22 @@ const arr = [
   },
 ];
 
-function processChild(item) {
-  const sampleData = [];
-  for (let j = 0; j < item.length; j++) {
-    if (typeof item.child == "object") {
-      sampleData.push(processChild(item.child));
-    }
+const tempList = [];
+function processChild(objectA) {
+  tempList.push(objectA.name);
+  if (objectA["child"]) {
+    objectA["child"].forEach(processChild);
   }
-  return sampleData;
+  return tempList;
 }
 
 let output = [];
-for (let i = 0; i < arr.length; i++) {
-  if (arr[i].child) {
-    let sample = processChild(arr[i]);
-    output.push(sample);
+for (obj in arr) {
+  if (arr[obj].child) {
+    let result = processChild(arr[obj]);
+    output.push(...result);
   } else {
-    output.push(arr[i]);
+    output.push(arr[obj].name);
   }
-
-  // sort out the item based on the value
-  output.forEach((item) => {
-    console.log(item.name);
-  });
 }
+console.log(output);
