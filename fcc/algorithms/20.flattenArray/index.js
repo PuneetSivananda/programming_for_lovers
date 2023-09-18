@@ -53,3 +53,8 @@ for (obj in arr) {
   }
 }
 console.log(output);
+const sortedOutput = output.sort((item1, item2) => {
+  return item1.age - item2.age;
+});
+
+console.log(sortedOutput);
