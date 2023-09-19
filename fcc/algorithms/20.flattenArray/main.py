@@ -33,9 +33,20 @@ arr = [
 ]
 
 
+def process_child(item):
+    print(item)
+
+
 def main():
+    result = []
     for i in arr:
-        print(i)
+        if ("child" in i.keys()):
+            print("child")
+            # process_child(i)
+        else:
+            print("nochild")
+            result.append({"name": i["name"], "age": i["age"]})
+    print(result)
 
 
 if __name__ == "__main__":
