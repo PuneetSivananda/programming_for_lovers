@@ -36,20 +36,19 @@ temp_list = []
 
 
 def process_child(item):
-    print(item)
+    temp_list.append({"name": item["name"], "age": item["age"]})
     if ("child" in item.keys()):
         for child in item["child"]:
             process_child(child)
+    return temp_list
 
 
 def main():
     result = []
     for i in arr:
         if ("child" in i.keys()):
-            print("child")
-            process_child(i)
+            result.extend(process_child(i))
         else:
-            print("nochild")
             result.append({"name": i["name"], "age": i["age"]})
     print(result)
 
