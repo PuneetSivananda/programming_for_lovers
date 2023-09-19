@@ -32,9 +32,14 @@ arr = [
     },
 ]
 
+temp_list = []
+
 
 def process_child(item):
     print(item)
+    if ("child" in item.keys()):
+        for child in item["child"]:
+            process_child(child)
 
 
 def main():
@@ -42,7 +47,7 @@ def main():
     for i in arr:
         if ("child" in i.keys()):
             print("child")
-            # process_child(i)
+            process_child(i)
         else:
             print("nochild")
             result.append({"name": i["name"], "age": i["age"]})
