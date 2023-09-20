@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 )
 
@@ -24,5 +25,43 @@ func main() {
 		}},
 		{Name: "F", Age: 35},
 	}
+	jsonInput := `
+	[
+		{
+		  name: "A",
+		  age: 60,
+		  child: [
+			{
+			  name: "B",
+			  age: 40,
+			},
+			{
+			  name: "C",
+			  age: 30,
+			  child: [
+				{
+				  name: "D",
+				  age: 14,
+				},
+				{
+				  name: "E",
+				  age: 5,
+				},
+			  ],
+			},
+		  ],
+		},
+		{
+		  name: "F",
+		  age: 35,
+		},
+	]`
+	var outputJson []Item
+	err := json.Unmarshal([]byte(jsonInput), &outputJson)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	fmt.Println(outputJson)
 	fmt.Println(arr)
 }
