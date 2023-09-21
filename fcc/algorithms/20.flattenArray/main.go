@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"sort"
 )
 
 // flatten the array and sort desc by age
@@ -76,4 +77,20 @@ func main() {
 		fmt.Println(data.Age)
 	}
 
+	sort.Slice(flattenedList, func(i, j int) bool {
+		return flattenedList[i].Age > flattenedList[j].Age
+	})
+	fmt.Println("----------------")
+
+	type FinalList struct {
+		Name string
+		Age  int
+	}
+
+	var sortedList []FinalList
+	for _, data := range flattenedList {
+		sortedList = append(sortedList, FinalList{data.Name, data.Age})
+	}
+
+	fmt.Println(sortedList)
 }
