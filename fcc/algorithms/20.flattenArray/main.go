@@ -71,6 +71,9 @@ func main() {
 		panic(err)
 	}
 	flattenedList := processItem(outputJson)
-	fmt.Println(flattenedList)
+	// fmt.Println(flattenedList)
+	for _, data := range flattenedList {
+		fmt.Println(data.Age)
+	}
 
 }
