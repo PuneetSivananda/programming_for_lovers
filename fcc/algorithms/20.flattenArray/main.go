@@ -27,33 +27,33 @@ func main() {
 	}
 	jsonInput := `[
 		{
-			"name": "A",
-			"age": 60,
-			"child": [
+		  "name": "A",
+		  "age": 60,
+		  "child": [
+			{
+			  "name": "B",
+			  "age": 40
+			},
+			{
+			  "name": "C",
+			  "age": 30,
+			  "child": [
 				{
-					"name": "B",
-					"age": 40,
+				  "name": "D",
+				  "age": 14
 				},
 				{
-					"name": "C",
-					"age": 30,
-					"child": [
-						{
-							"name": "D",
-							"age": 14,
-						},
-						{
-							"name": "E",
-							"age": 5,
-						},
-					],
-				},
-			],
+				  "name": "E",
+				  "age": 5
+				}
+			  ]
+			}
+		  ]
 		},
 		{
-			"name": "F",
-			"age": 35,
-		},
+		  "name": "F",
+		  "age": 35
+		}
 	]`
 	var outputJson []Item
 	err := json.Unmarshal([]byte(jsonInput), &outputJson)
