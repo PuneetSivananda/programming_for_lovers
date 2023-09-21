@@ -9,8 +9,8 @@ function bubbleSortAnArray(arr) {
         arr[j + 1] = temp;
       }
     }
-    if (!swap) {
-      return;
+    if (swap != false) {
+      continue;
     }
   }
   return arr;
