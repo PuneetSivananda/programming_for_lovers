@@ -13,18 +13,27 @@ type Item struct {
 	Child []Item
 }
 
-func main() {
-	fmt.Println("flatten an array in golang")
-	arr := []Item{
-		{Name: "A", Age: 60, Child: []Item{
-			{Name: "B", Age: 40},
-			{Name: "C", Age: 30, Child: []Item{
-				{Name: "D", Age: 14},
-				{Name: "E", Age: 5},
-			}},
-		}},
-		{Name: "F", Age: 35},
+func processItem(items []Item) []Item { //return type is required for recursion in go
+	var flattenedItem []Item
+	for _, c := range items {
+		flattenedItem = append(flattenedItem, c)
+		flattenedItem = append(flattenedItem, processItem(c.Child)...) // we need to use the spread operator
 	}
+	return flattenedItem
+}
+
+func main() {
+	// fmt.Println("flatten an array in golang")
+	// arr := []Item{
+	// 	{Name: "A", Age: 60, Child: []Item{
+	// 		{Name: "B", Age: 40},
+	// 		{Name: "C", Age: 30, Child: []Item{
+	// 			{Name: "D", Age: 14},
+	// 			{Name: "E", Age: 5},
+	// 		}},
+	// 	}},
+	// 	{Name: "F", Age: 35},
+	// }
 	jsonInput := `[
 		{
 		  "name": "A",
@@ -61,6 +70,7 @@ func main() {
 		fmt.Println(err)
 		panic(err)
 	}
-	fmt.Println(outputJson)
-	fmt.Println(arr)
+	flattenedList := processItem(outputJson)
+	fmt.Println(flattenedList)
+
 }
