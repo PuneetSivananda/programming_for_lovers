@@ -35,7 +35,7 @@ func main() {
 	// 	}},
 	// 	{Name: "F", Age: 35},
 	// }
-	jsonInput := `[
+	jsonInput := []byte(`[
 		{
 		  "name": "A",
 		  "age": 60,
@@ -64,9 +64,9 @@ func main() {
 		  "name": "F",
 		  "age": 35
 		}
-	]`
+	]`)
 	var outputJson []Item
-	err := json.Unmarshal([]byte(jsonInput), &outputJson)
+	err := json.Unmarshal(jsonInput, &outputJson)
 	if err != nil {
 		fmt.Println(err)
 		panic(err)
