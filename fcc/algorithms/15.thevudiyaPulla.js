@@ -6,25 +6,27 @@ function findSubSetsWithSumZero(arr) {
   let sums = {};
   let currentSum = 0;
   let maxLength = 0;
+  sums["0"] = [-1];
+  
   for (let i = 0; i < arr.length; i++) {
     let subsetLength;
     currentSum = currentSum += arr[i];
-
     if (sums[currentSum] != undefined) {
-      subsetLength = i - sums[currentSum][-1];
-    }
-
-    if (subsetLength > maxLength) {
-      maxLength = subsetLength;
+      subsetLength = i - sums[currentSum].pop();
+      if (subsetLength > maxLength) {
+        maxLength = subsetLength;
+      }
     }
     /*
         
     */
     if (sums[currentSum] == undefined) {
       sums[currentSum] = [i];
+    } else {
+      sums[currentSum].push(i);
     }
   }
-  console.log(sums);
+  console.log(sums, maxLength);
 }
 
 findSubSetsWithSumZero(inputArr);
