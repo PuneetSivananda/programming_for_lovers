@@ -1,3 +1,4 @@
 *.zip
 *.dSYM
 intro
+dist/*
