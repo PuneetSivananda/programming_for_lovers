@@ -7,18 +7,24 @@ function findSubSetsWithSumZero(arr) {
   let currentSum = 0;
   let maxLength = 0;
   for (let i = 0; i < arr.length; i++) {
+    let subsetLength;
     currentSum = currentSum += arr[i];
-    ```
-    if current_sum in sums:
-    # Calculate the length of the subset
-    subset_length = i - sums[current_sum][-1]
 
-    # If this is the longest subset found so far, update max_length
-    if subset_length > max_length:
-        max_length = subset_length
-    ```;
+    if (sums[currentSum] != undefined) {
+      subsetLength = i - sums[currentSum][-1];
+    }
+
+    if (subsetLength > maxLength) {
+      maxLength = subsetLength;
+    }
+    /*
+        
+    */
+    if (sums[currentSum] == undefined) {
+      sums[currentSum] = [i];
+    }
   }
-  console.log(currentSum);
+  console.log(sums);
 }
 
 findSubSetsWithSumZero(inputArr);
