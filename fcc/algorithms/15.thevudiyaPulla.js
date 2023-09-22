@@ -6,11 +6,19 @@ function findSubSetsWithSumZero(arr) {
   let sums = {};
   let currentSum = 0;
   let maxLength = 0;
-  sums[0] = [-1];
-  console.log(sums);
   for (let i = 0; i < arr.length; i++) {
-    console.log(i, arr[i]);
+    currentSum = currentSum += arr[i];
+    ```
+    if current_sum in sums:
+    # Calculate the length of the subset
+    subset_length = i - sums[current_sum][-1]
+
+    # If this is the longest subset found so far, update max_length
+    if subset_length > max_length:
+        max_length = subset_length
+    ```;
   }
+  console.log(currentSum);
 }
 
 findSubSetsWithSumZero(inputArr);
