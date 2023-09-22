@@ -9,60 +9,35 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 // Generate an array of random numbers
-const countSortArray = Array.from({ length: 50 }, () => Math.floor(Math.random() * 100));
+const array = Array.from({ length: 50 }, () => Math.floor(Math.random() * 100));
 // Initialize canvas and context
-const bubbleSortCanvas = document.getElementById("canvas1");
-const bubbleSortCtx = bubbleSortCanvas.getContext("2d") || null;
-const bubbleSortbarWidth = bubbleSortCanvas.width / bubbleSortArray.length;
+const canvas = document.getElementById("canvas1");
+const ctx = canvas.getContext("2d") || null;
+const barWidth = canvas.width / array.length;
 // Function to draw the bars
-function drawCountSortBars() {
-    if (bubbleSortCtx != null) {
+function drawBars() {
+    if (ctx != null) {
         // check for null error
-        bubbleSortCtx.clearRect(0, 0, bubbleSortCanvas.width, bubbleSortCanvas.height);
-        bubbleSortArray.forEach((num, index) => {
-            const barHeight = (num / 100) * bubbleSortCanvas.height;
-            const x = index * bubbleSortbarWidth;
-            const y = bubbleSortCanvas.height - barHeight;
-            bubbleSortCtx.fillStyle = "blue";
-            bubbleSortCtx.fillRect(x, y, bubbleSortbarWidth, barHeight);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        array.forEach((num, index) => {
+            const barHeight = (num / 100) * canvas.height;
+            const x = index * barWidth;
+            const y = canvas.height - barHeight;
+            ctx.fillStyle = "blue";
+            ctx.fillRect(x, y, barWidth, barHeight);
         });
     }
 }
-const countingSort = () => {
-    const max = Math.max(...countSortArray);
-    const count = [];
-    // initialize the count sort array until the max number of items that can be stored
-    for (let i = 0; i <= max; i++) {
-        count[i] = 0;
-    }
-    console.log(count);
-    for (let i = 0; i < arr.length; i++) {
-        count[arr[i]] += 1;
-    }
-    // Then, iterate over count's properties from min to max:
-    const sortedArr = [];
-    for (let i = min; i <= max; i++) {
-        while (count[i] > 0) {
-            sortedArr.push(i);
-            // redraw the array here
-            count[i]--;
-        }
-    }
-    return sortedArr;
-};
 // Count sort algorithm
 function countSort() {
     return __awaiter(this, void 0, void 0, function* () {
-        for (let i = 0; i < bubbleSortArray.length - 1; i++) {
-            for (let j = 0; j < bubbleSortArray.length - i - 1; j++) {
-                if (bubbleSortArray[j] > bubbleSortArray[j + 1]) {
+        for (let i = 0; i < array.length - 1; i++) {
+            for (let j = 0; j < array.length - i - 1; j++) {
+                if (array[j] > array[j + 1]) {
                     // Swap elements
-                    [bubbleSortArray[j], bubbleSortArray[j + 1]] = [
-                        bubbleSortArray[j + 1],
-                        bubbleSortArray[j],
-                    ];
+                    [array[j], array[j + 1]] = [array[j + 1], array[j]];
                     // Redraw bars after swap
-                    drawCountSortBars();
+                    drawBars();
                     // Pause for visualization
                     yield new Promise((resolve) => setTimeout(resolve, 50));
                 }
@@ -70,4 +45,4 @@ function countSort() {
         }
     });
 }
-drawCountSortBars();
+countSort();
