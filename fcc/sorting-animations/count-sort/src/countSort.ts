@@ -1,37 +1,41 @@
 // Generate an array of random numbers
-const array = Array.from({ length: 50 }, () => Math.floor(Math.random() * 100));
+const csArray = Array.from({ length: 50 }, () =>
+  Math.floor(Math.random() * 100)
+);
 
 // Initialize canvas and context
-const canvas = document.getElementById("canvas1") as HTMLCanvasElement;
-const ctx = canvas.getContext("2d") || null;
-const barWidth = canvas.width / array.length;
+const csCanvas = document.getElementById(
+  "countSortCanvas"
+) as HTMLCanvasElement;
+const csCtx = csCanvas.getContext("2d") || null;
+const csBarWidth = csCanvas.width / csArray.length;
 
 // Function to draw the bars
-function drawBars() {
-  if (ctx != null) {
+function csDrawBars() {
+  if (csCtx != null) {
     // check for null error
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    array.forEach((num, index) => {
-      const barHeight = (num / 100) * canvas.height;
-      const x = index * barWidth;
-      const y = canvas.height - barHeight;
+    csCtx.clearRect(0, 0, csCanvas.width, csCanvas.height);
+    csArray.forEach((num, index) => {
+      const barHeight = (num / 100) * csCanvas.height;
+      const x = index * csBarWidth;
+      const y = csCanvas.height - barHeight;
 
-      ctx.fillStyle = "blue";
-      ctx.fillRect(x, y, barWidth, barHeight);
+      csCtx.fillStyle = "blue";
+      csCtx.fillRect(x, y, csBarWidth, barHeight);
     });
   }
 }
 
 // Count sort algorithm
-async function countSort() {
-  for (let i = 0; i < array.length - 1; i++) {
-    for (let j = 0; j < array.length - i - 1; j++) {
-      if (array[j] > array[j + 1]) {
+async function CSort() {
+  for (let i = 0; i < csArray.length - 1; i++) {
+    for (let j = 0; j < csArray.length - i - 1; j++) {
+      if (csArray[j] > csArray[j + 1]) {
         // Swap elements
-        [array[j], array[j + 1]] = [array[j + 1], array[j]];
+        [csArray[j], csArray[j + 1]] = [csArray[j + 1], csArray[j]];
 
         // Redraw bars after swap
-        drawBars();
+        csDrawBars();
 
         // Pause for visualization
         await new Promise((resolve) => setTimeout(resolve, 50));
@@ -40,4 +44,4 @@ async function countSort() {
   }
 }
 
-countSort();
+// countSort();
