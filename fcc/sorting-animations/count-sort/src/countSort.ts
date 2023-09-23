@@ -28,20 +28,33 @@ function csDrawBars() {
 
 // Count sort algorithm
 async function CSort() {
-  for (let i = 0; i < csArray.length - 1; i++) {
-    for (let j = 0; j < csArray.length - i - 1; j++) {
-      if (csArray[j] > csArray[j + 1]) {
-        // Swap elements
-        [csArray[j], csArray[j + 1]] = [csArray[j + 1], csArray[j]];
+  let count = [];
+  let output = [];
+  let i = 0;
+  let max = Math.max(...csArray);
 
-        // Redraw bars after swap
-        csDrawBars();
-
-        // Pause for visualization
-        await new Promise((resolve) => setTimeout(resolve, 50));
-      }
-    }
+  // initialize counter
+  for (i = 0; i <= max; i++) {
+    count[i] = 0;
   }
+
+  // initialize output array
+  for (i = 0; i < csArray.length; i++) {
+    output[i] = 0;
+  }
+
+  for (i = 0; i < csArray.length; i++) {
+    count[csArray[i]]++;
+  }
+
+  for (i = 1; i < count.length; i++) {
+    count[i] += count[i - 1];
+  }
+
+  for (i = csArray.length - 1; i >= 0; i--) {
+    output[--count[csArray[i]]] = csArray[i];
+  }
+  csDrawBars();
 }
 
-// countSort();
+csDrawBars();
