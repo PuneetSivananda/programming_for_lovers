@@ -4,9 +4,9 @@ rows = 5
 
 
 def printHalfPyramid(rows):
-    for i in range(rows):
-        for j in range(1+i):
-            print(j+1, end=" ")
+    for i in range(rows, 0, -1):
+        for j in range(1, 1+i):
+            print(j, end=" ")
         print("\n")
     return
 
