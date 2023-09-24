@@ -2,14 +2,31 @@
 <html>
   <head>
     <style>
-      canvas {
-        border: 1px solid black;
+      .container {
+        display: flex;
+        align-items: flex-end;
+        height: 400px;
+        width: 100%;
+        background-color: #f0f0f0;
+        overflow: hidden;
+      }
+
+      .bar {
+        background-color: #3498db;
+        width: 30px;
+        margin: 0 1px;
+        transition: height 0.2s;
       }
     </style>
   </head>
   <body>
-    <canvas id="countSortCanvas" width="600" height="400"></canvas>
+    <!-- <canvas id="countSortCanvas" width="600" height="400"></canvas>
     <button onclick="CSort();">Start</button>
+    <script src="../dist/count-sort/src/countSort.js"></script> -->
+    <div class="container" id="container">
+      <!-- Bars will be dynamically generated here -->
+    </div>
+    <button onclick="startSorting()">Start Sorting</button>
     <script src="../dist/count-sort/src/countSort.js"></script>
   </body>
 </html>

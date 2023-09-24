@@ -1,60 +1,63 @@
-// Generate an array of random numbers
-const csArray = Array.from({ length: 50 }, () =>
-  Math.floor(Math.random() * 100)
-);
-
-// Initialize canvas and context
-const csCanvas = document.getElementById(
-  "countSortCanvas"
-) as HTMLCanvasElement;
-const csCtx = csCanvas.getContext("2d") || null;
-const csBarWidth = csCanvas.width / csArray.length;
-
-// Function to draw the bars
-function csDrawBars() {
-  if (csCtx != null) {
-    // check for null error
-    csCtx.clearRect(0, 0, csCanvas.width, csCanvas.height);
-    csArray.forEach((num, index) => {
-      const barHeight = (num / 100) * csCanvas.height;
-      const x = index * csBarWidth;
-      const y = csCanvas.height - barHeight;
-
-      csCtx.fillStyle = "blue";
-      csCtx.fillRect(x, y, csBarWidth, barHeight);
-    });
-  }
+// Function to generate random integers between min and max
+function getRandomInt(min: number, max: number) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// Count sort algorithm
-async function CSort() {
-  let count = [];
-  let output = [];
-  let i = 0;
-  let max = Math.max(...csArray);
-
-  // initialize counter
-  for (i = 0; i <= max; i++) {
-    count[i] = 0;
+// Function to create an array of random integers
+function generateRandomArray(size: number, min: number, max: number) {
+  const arr = [];
+  for (let i = 0; i < size; i++) {
+    arr.push(getRandomInt(min, max));
   }
-
-  // initialize output array
-  for (i = 0; i < csArray.length; i++) {
-    output[i] = 0;
-  }
-
-  for (i = 0; i < csArray.length; i++) {
-    count[csArray[i]]++;
-  }
-
-  for (i = 1; i < count.length; i++) {
-    count[i] += count[i - 1];
-  }
-
-  for (i = csArray.length - 1; i >= 0; i--) {
-    output[--count[csArray[i]]] = csArray[i];
-  }
-  csDrawBars();
+  return arr;
 }
 
-csDrawBars();
+// Function to update the visual representation of bars
+function updateBars(arr: number[]) {
+  const container = document.getElementById("container") as HTMLElement;
+  container.innerHTML = "";
+  arr.forEach((value) => {
+    const bar = document.createElement("div");
+    bar.classList.add("bar");
+    bar.style.height = `${value * 5}px`; // Scale the height for visualization
+    container.appendChild(bar);
+  });
+}
+
+// Counting Sort algorithm
+function countingSort(arr: number[]) {
+  const max = Math.max(...arr);
+  const min = Math.min(...arr);
+  const range = max - min + 1;
+  const countArray = new Array(range).fill(0);
+  const sortedArray = new Array(arr.length);
+
+  arr.forEach((num) => {
+    countArray[num - min]++;
+  });
+
+  for (let i = 1; i < range; i++) {
+    countArray[i] += countArray[i - 1];
+  }
+
+  for (let i = arr.length - 1; i >= 0; i--) {
+    sortedArray[countArray[arr[i] - min] - 1] = arr[i];
+    countArray[arr[i] - min]--;
+  }
+
+  return sortedArray;
+}
+
+function startSorting() {
+  const arr = generateRandomArray(50, 1, 100); // Adjust size, min, and max as needed
+  updateBars(arr);
+
+  setTimeout(() => {
+    const sortedArray = countingSort(arr.slice());
+    updateBars(sortedArray);
+  }, 400); // Delay to show the initial array before sorting
+}
+
+// Initial random array and visualization
+const initialArray = generateRandomArray(50, 1, 100); // Adjust size, min, and max as needed
+updateBars(initialArray);

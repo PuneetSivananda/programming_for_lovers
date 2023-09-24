@@ -1,58 +1,54 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-// Generate an array of random numbers
-const csArray = Array.from({ length: 50 }, () => Math.floor(Math.random() * 100));
-// Initialize canvas and context
-const csCanvas = document.getElementById("countSortCanvas");
-const csCtx = csCanvas.getContext("2d") || null;
-const csBarWidth = csCanvas.width / csArray.length;
-// Function to draw the bars
-function csDrawBars() {
-    if (csCtx != null) {
-        // check for null error
-        csCtx.clearRect(0, 0, csCanvas.width, csCanvas.height);
-        csArray.forEach((num, index) => {
-            const barHeight = (num / 100) * csCanvas.height;
-            const x = index * csBarWidth;
-            const y = csCanvas.height - barHeight;
-            csCtx.fillStyle = "blue";
-            csCtx.fillRect(x, y, csBarWidth, barHeight);
-        });
+// Function to generate random integers between min and max
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+// Function to create an array of random integers
+function generateRandomArray(size, min, max) {
+    const arr = [];
+    for (let i = 0; i < size; i++) {
+        arr.push(getRandomInt(min, max));
     }
+    return arr;
 }
-// Count sort algorithm
-function CSort() {
-    return __awaiter(this, void 0, void 0, function* () {
-        let count = [];
-        let output = [];
-        let i = 0;
-        let max = Math.max(...csArray);
-        // initialize counter
-        for (i = 0; i <= max; i++) {
-            count[i] = 0;
-        }
-        // initialize output array
-        for (i = 0; i < csArray.length; i++) {
-            output[i] = 0;
-        }
-        for (i = 0; i < csArray.length; i++) {
-            count[csArray[i]]++;
-        }
-        for (i = 1; i < count.length; i++) {
-            count[i] += count[i - 1];
-        }
-        for (i = csArray.length - 1; i >= 0; i--) {
-            output[--count[csArray[i]]] = csArray[i];
-        }
-        csDrawBars();
+// Function to update the visual representation of bars
+function updateBars(arr) {
+    const container = document.getElementById("container");
+    container.innerHTML = "";
+    arr.forEach((value) => {
+        const bar = document.createElement("div");
+        bar.classList.add("bar");
+        bar.style.height = `${value * 5}px`; // Scale the height for visualization
+        container.appendChild(bar);
     });
 }
-csDrawBars();
+// Counting Sort algorithm
+function countingSort(arr) {
+    const max = Math.max(...arr);
+    const min = Math.min(...arr);
+    const range = max - min + 1;
+    const countArray = new Array(range).fill(0);
+    const sortedArray = new Array(arr.length);
+    arr.forEach((num) => {
+        countArray[num - min]++;
+    });
+    for (let i = 1; i < range; i++) {
+        countArray[i] += countArray[i - 1];
+    }
+    for (let i = arr.length - 1; i >= 0; i--) {
+        sortedArray[countArray[arr[i] - min] - 1] = arr[i];
+        countArray[arr[i] - min]--;
+    }
+    return sortedArray;
+}
+function startSorting() {
+    const arr = generateRandomArray(50, 1, 100); // Adjust size, min, and max as needed
+    updateBars(arr);
+    setTimeout(() => {
+        const sortedArray = countingSort(arr.slice());
+        updateBars(sortedArray);
+    }, 400); // Delay to show the initial array before sorting
+}
+// Initial random array and visualization
+const initialArray = generateRandomArray(50, 1, 100); // Adjust size, min, and max as needed
+updateBars(initialArray);
