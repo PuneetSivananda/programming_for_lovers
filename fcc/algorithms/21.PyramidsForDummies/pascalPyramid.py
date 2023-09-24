@@ -11,7 +11,8 @@ def printPascalsPyramid(rows):
             if j == 0 or i == 0:
                 value = 1
             else:
-                value *= (i-j)//j
+                # value *= (i-j)//j
+                value = value * (i-j)//j
             print(value, end="  ")
         print()
     return
