@@ -3,7 +3,7 @@ from __future__ import print_function
 rows = 5
 
 
-def printHalfPyramid(rows):
+def printInvertedHalfPyramid(rows):
     for i in range(rows, 0, -1):
         for j in range(1, 1+i):
             print(j, end=" ")
@@ -11,4 +11,4 @@ def printHalfPyramid(rows):
     return
 
 
-printHalfPyramid(rows)
+printInvertedHalfPyramid(rows)
