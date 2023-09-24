@@ -1,4 +1,5 @@
 # ref : https://www.programiz.com/python-programming/examples/pyramid-patterns
+from __future__ import print_function
 rows = 5
 
 
