@@ -6,14 +6,14 @@ value = 1
 def printPascalsPyramid(rows):
     for i in range(rows+1):
         for _ in range(1, rows - i + 1):
-            print(" ", end="")
+            print(" ", end="  ")
         for j in range(0, i):
             if j == 0 or i == 0:
                 value = 1
             else:
                 # value *= (i-j)//j
                 value = value * (i-j)//j
-            print(value, end="  ")
+            print(value, end="    ")
         print()
     return
 
