@@ -24,24 +24,29 @@ function drawselectionSortBars() {
   }
 }
 
+function swap(A: number[], x: number, y: number) {
+  var temp = A[x];
+  A[x] = A[y];
+  A[y] = temp;
+}
+
 // insertion sort algorithm
 async function selectionSort() {
   var len = selectionSortArray.length;
-  var i = 1;
-  while (i < len) {
-    var x = selectionSortArray[i];
-    var j = i - 1;
-    while (j >= 0 && selectionSortArray[j] > x) {
-      selectionSortArray[j + 1] = selectionSortArray[j];
+  for (var i = 0; i < len - 1; i = i + 1) {
+    var j_min = i;
+    for (var j = i + 1; j < len; j = j + 1) {
+      if (selectionSortArray[j] < selectionSortArray[j_min]) {
+        j_min = j;
 
-      drawselectionSortBars();
+        drawselectionSortBars();
 
-      await new Promise((resolve) => setTimeout(resolve, 50));
-
-      j = j - 1;
+        await new Promise((resolve) => setTimeout(resolve, 50));
+      }
     }
-    selectionSortArray[j + 1] = x;
-    i = i + 1;
+    if (j_min !== i) {
+      swap(selectionSortArray, i, j_min);
+    }
   }
 }
 
