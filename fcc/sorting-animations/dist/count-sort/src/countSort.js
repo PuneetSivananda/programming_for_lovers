@@ -38,6 +38,8 @@ function countingSort(arr) {
     for (let i = arr.length - 1; i >= 0; i--) {
         sortedArray[countArray[arr[i] - min] - 1] = arr[i];
         countArray[arr[i] - min]--;
+        updateBars(sortedArray);
+        new Promise((resolve) => setTimeout(resolve, 400));
     }
     return sortedArray;
 }
