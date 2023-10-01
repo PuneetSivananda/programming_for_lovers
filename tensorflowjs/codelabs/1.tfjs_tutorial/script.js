@@ -18,6 +18,24 @@ async function getData() {
   return cleaned;
 }
 
+const createModel = () => {
+  const model = tf.sequential(); // sequential model
+  model.add(
+    tf.layers.dense({
+      inputShape: [1],
+      units: 1,
+      useBias: true,
+    })
+  ); // add a single input layer
+  model.add(
+    tf.layers.dense({
+      units: 1,
+      useBias: true,
+    })
+  ); // model output layer
+  return model;
+};
+
 async function run() {
   const data = await getData();
   const values = data.map((d) => ({
