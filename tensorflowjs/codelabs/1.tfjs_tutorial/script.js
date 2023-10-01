@@ -1,11 +1,14 @@
 console.log("Hello from tensorflow");
 
 async function getData() {
-  const carsDataResponse = await fetch(
-    "https://storage.googleapis.com/tfjs-tutorials/carsData.json"
-  ).then((data) => data.json());
+  // const carsDataResponse = await fetch(
+  //   "https://storage.googleapis.com/tfjs-tutorials/carsData.json"
+  // ).then((data) => data.json());
+  const localJson = await fetch("./data/input.json").then((resp) =>
+    resp.json()
+  );
 
-  const cleaned = carsDataResponse
+  const cleaned = localJson
     .map((car) => ({
       mpg: car.Miles_per_Gallon,
       horsepower: car.Horsepower,
