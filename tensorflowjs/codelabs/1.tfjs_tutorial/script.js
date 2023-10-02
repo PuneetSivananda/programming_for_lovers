@@ -19,7 +19,7 @@ async function getData() {
 }
 
 const createModel = () => {
-  const model = tf.sequential(); // sequential model
+  const model = tf.sequential(); // create a sequential model
   model.add(
     tf.layers.dense({
       inputShape: [1],
@@ -36,8 +36,21 @@ const createModel = () => {
   return model;
 };
 
+/**
+ * Convert the input data to tensors for machine learning
+ * implement practices like __shuffling__ and __normalizing__ the data.
+ */
+
+
+
 async function run() {
+  // get data
   const data = await getData();
+
+  // create the model instance
+  const model = createModel();
+  tfvis.show.modelSummary({ name: "Model Summary" }, model);
+
   const values = data.map((d) => ({
     x: d.horsepower,
     y: d.mpg,
