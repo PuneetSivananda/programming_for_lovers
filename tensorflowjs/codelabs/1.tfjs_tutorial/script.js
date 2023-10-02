@@ -29,6 +29,13 @@ const createModel = () => {
   ); // add a single input layer
   model.add(
     tf.layers.dense({
+      inputShape: [1],
+      units: 50,
+      activation: "sigmoid",
+    })
+  );
+  model.add(
+    tf.layers.dense({
       units: 1,
       useBias: true,
     })
