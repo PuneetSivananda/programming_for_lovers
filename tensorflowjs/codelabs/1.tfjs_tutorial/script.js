@@ -43,7 +43,7 @@ const createModel = () => {
 function convertToTensor(data) {
   return tf.tidy(() => {
     // 1.Shuffle the data
-    tf.utl.shuffle(data);
+    tf.util.shuffle(data);
 
     // 2. Convert data to tensor
     const inputs = data.map((d) => d.horsepower);
@@ -78,6 +78,28 @@ function convertToTensor(data) {
   });
 }
 
+async function trainModel(model, inputs, labels) {
+  model.compile({
+    optimizer: tf.train.adam(),
+    loss: tf.losses.meanSquaredError,
+    metrice: ["mse"],
+  });
+
+  const batchSize = 32;
+  const epochs = 50;
+
+  return await model.fit(inputs, labels, {
+    batchSize,
+    epochs,
+    shuffle: true,
+    callbacks: tfvis.show.fitCallbacks(
+      { name: "Training Performance" },
+      ["loss", "mse"],
+      { height: 200, callbacks: ["onEpochEnd"] }
+    ),
+  });
+}
+
 async function run() {
   // get data
   const data = await getData();
@@ -99,6 +121,12 @@ async function run() {
       height: 300,
     }
   );
+  // Convert data
+  const tensorData = convertToTensor(data);
+  const { inputs, labels } = tensorData;
+  // Train the model
+  await trainModel(model, inputs, labels);
+  console.log("Done Training");
 }
 
 document.addEventListener("DOMContentLoaded", run);
