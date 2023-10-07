@@ -15,6 +15,18 @@ export default class Queue<T> {
     }
 
     enqueue(item: T): void {}
-    deque(): T | undefined {}
-    peek(): T | undefined {}
+    deque(): T | undefined {
+        if (!this.head) {
+            return undefined;
+        }
+        this.length--;
+        const head = this.head;
+        this.head = this.head.next;
+        head.next = undefined;
+        // add gc here
+        return head.value;
+    }
+    peek(): T | undefined {
+        return this.head?.value;
+    }
 }
