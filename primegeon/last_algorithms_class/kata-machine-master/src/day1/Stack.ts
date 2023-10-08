@@ -1,9 +1,16 @@
-type Node<T> = {};
+type Node<T> = {
+    value: T;
+    prev?: Node<T>;
+};
 
 export default class Stack<T> {
     public length: number;
+    private head?: Node<T>;
 
-    constructor() {}
+    constructor() {
+        this.head = undefined;
+        this.length = 0;
+    }
 
     push(item: T): void {
         if (this.nums.length === this.length) {
@@ -20,6 +27,6 @@ export default class Stack<T> {
     }
 
     peek(): T | undefined {
-        return this.nums[this.length - 1];
+        return this.head?.value;
     }
 }
