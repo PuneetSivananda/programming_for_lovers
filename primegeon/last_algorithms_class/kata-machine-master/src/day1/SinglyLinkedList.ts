@@ -1,18 +1,26 @@
-class Node {
-    public next: Node | null;
-    public value: number;
-    constructor(value: number) {
-        this.next = null;
-        this.value = value;
-    }
-}
+type Node<T> = {
+    value: T;
+    next?: Node<T>;
+};
 export default class SinglyLinkedList<T> {
     public length: number;
-    public items: Node[];
-    constructor() {}
+    private head?: Node<T>;
+    private tail?: Node<T>;
 
-    prepend(item: T): void {}
-    insertAt(item: T, idx: number): void {}
+    constructor() {
+        this.head = this.tail = undefined;
+        this.length = 0;
+    }
+
+    prepend(item: T): void {
+        const node = { value: item } as Node<T>;
+        node.next = this.head?.next;
+        this.head = node;
+    }
+
+    insertAt(item: T, idx: number): void {
+        
+    }
     append(item: T): void {}
     remove(item: T): T | undefined {}
     get(idx: number): T | undefined {}
