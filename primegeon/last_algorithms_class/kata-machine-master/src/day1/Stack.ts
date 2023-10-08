@@ -13,17 +13,27 @@ export default class Stack<T> {
     }
 
     push(item: T): void {
-        if (this.nums.length === this.length) {
-            throw Error("The Array is full cannot push");
+        const node = { value: item } as Node<T>;
+        this.length++;
+        if (!this.head) {
+            this.head = node;
+            return;
         }
-        this.length = this.length + 1;
-        this.nums.push(item);
+        node.prev = this.head;
+        this.head = node;
     }
 
     pop(): T | undefined {
-        const head = this.nums[this.length - 1];
-        this.length = this.length - 1;
-        return head;
+        this.length = Math.max(0, this.length - 1);
+        if (this.length == 0) {
+            const head = this.head as Node<T>;
+            this.head = undefined;
+            return head?.value;
+        }
+        const head = this.head as Node<T>;
+        this.head = head?.prev;
+        // free the item
+        return head.value;
     }
 
     peek(): T | undefined {
