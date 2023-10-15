@@ -19,7 +19,20 @@ export default class ArrayList<T> {
         }
         this.length++;
     }
-    remove(item: T): T | undefined {}
-    get(idx: number): T | undefined {}
-    removeAt(idx: number): T | undefined {}
+    remove(item: T): T | undefined {
+        if (this.nums.includes(item)) {
+            return this.nums.splice(this.nums.indexOf(item), 1)[0];
+        } else {
+            return undefined;
+        }
+    }
+
+    get(idx: number): T | undefined {
+        return this.nums[idx];
+    }
+    removeAt(idx: number): T | undefined {
+        const value = this.nums[idx];
+        this.nums.splice(idx, 1);
+        return value;
+    }
 }
