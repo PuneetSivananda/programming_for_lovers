@@ -26,17 +26,16 @@ export default class ArrayList<T> {
         this.length++;
     }
     remove(item: T): T | undefined {
-        this.length--;
+        this.length = this.nums.length - 1;
         return this.nums.splice(this.nums.indexOf(item), 1)[0];
     }
 
     get(idx: number): T | undefined {
-        return this.nums[idx - 1];
+        if (idx >= this.length || idx < 0) throw Error("Array out of bounds");
+        else return this.nums[idx];
     }
     removeAt(idx: number): T | undefined {
-        const value = this.nums[idx];
-        this.nums.splice(idx, 1);
-        this.length--;
-        return value;
+        this.length = this.nums.length - 1;
+        return this.nums.splice(idx, 1)[0];
     }
 }
