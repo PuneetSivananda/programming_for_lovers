@@ -6,6 +6,7 @@ type Node<T> = {
 export default class DoublyLinkedList<T> {
     public length: number;
     private head?: Node<T>;
+    private tail?: Node<T>;
 
     constructor() {
         this.length = 0;
@@ -16,7 +17,7 @@ export default class DoublyLinkedList<T> {
         const node = { value: item } as Node<T>;
         this.length++;
         if (!this.head) {
-            this.head = node;
+            this.head = this.tail = node;
             return;
         }
         node.next = this.head;
@@ -53,9 +54,25 @@ export default class DoublyLinkedList<T> {
         }
     }
 
-    append(item: T): void {}
+    append(item: T): void {
+        this.length++;
+        const node = { value: item } as Node<T>;
+        if (!this.tail) {
+            this.head = this.tail = node;
+            return;
+        }
 
-    remove(item: T): T | undefined {}
+        node.prev = this.tail;
+        this.tail.next = node;
+        this.tail = node;
+    }
+
+    remove(item: T): T | undefined {
+        let curr = this.head;
+        for (let i = 0; curr && i < this.length; i++) {
+            
+        }
+    }
 
     get(idx: number): T | undefined {}
 
