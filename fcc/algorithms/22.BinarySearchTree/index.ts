@@ -1,6 +1,6 @@
 // Source: https://www.geeksforgeeks.org/implementation-binary-search-tree-javascript/
 class TNode {
-  value: number | null;
+  value: number;
   right: TNode | null;
   left: TNode | null;
   constructor(value: number) {
@@ -16,7 +16,9 @@ class BinarySearchTree {
     this.root = null;
   }
 
-  insert(data) {
+  // function to be implemented
+  // insert(data)
+  insert(data: number) {
     let newNode = new TNode(data);
     if (this.root === null) {
       this.root = newNode;
@@ -24,5 +26,49 @@ class BinarySearchTree {
       this.insertNode(this.root, newNode);
     }
   }
-  insertNode(node, newNode) {}
+  // remove(data)
+  remove(data: number): void {
+    this.root = this.removeNode(this.root, data);
+  }
+
+  // Helper function
+  // findMinNode()
+  // getRootNode()
+  // inorder(node)
+  // preorder(node)
+  // postorder(node)
+  // search(node, data)
+
+  insertNode(node: TNode, newNode: TNode) {
+    if (newNode.value < node.value) {
+      if (node.left === null) {
+        node.left = newNode;
+      } else {
+        this.insertNode(node.left, newNode);
+      }
+    } else {
+      if (node.right === null) {
+        node.right = newNode;
+      } else {
+        this.insertNode(node.right, newNode);
+      }
+    }
+  }
+
+  removeNode(node: TNode | null, key: number): TNode | null {
+    if (node === null) return null;
+    else if (key < node.value) {
+      node.left = this.removeNode(node.left, key);
+      return node;
+    } else if (key > node.value) {
+      node.right = this.removeNode(node.right, key);
+      return node;
+    } else {
+      if (node.left === null && node.right === null) {
+        node = null;
+        return node;
+      }
+      return node;
+    }
+  }
 }
