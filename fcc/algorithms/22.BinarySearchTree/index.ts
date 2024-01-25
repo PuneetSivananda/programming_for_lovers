@@ -33,6 +33,13 @@ class BinarySearchTree {
 
   // Helper function
   // findMinNode()
+  findMinNode(node: TNode): TNode {
+    if (node.left === null) {
+      return node;
+    } else {
+      return this.findMinNode(node.left);
+    }
+  }
   // getRootNode()
   // inorder(node)
   // preorder(node)
@@ -68,6 +75,21 @@ class BinarySearchTree {
         node = null;
         return node;
       }
+      if (node.left === null) {
+        node = node.right;
+        return node;
+      } else if (node.right === null) {
+        node = node.left;
+        return node;
+      }
+
+      // Deleting node with two children
+      // minimum node of the right subtree
+      // is stored in aux
+      var aux = this.findMinNode(node.right);
+      node.value = aux.value;
+
+      node.right = this.removeNode(node.right, aux.value);
       return node;
     }
   }
