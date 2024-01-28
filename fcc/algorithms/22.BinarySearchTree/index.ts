@@ -41,9 +41,33 @@ class BinarySearchTree {
     }
   }
   // getRootNode()
+  getRootNode() {
+    return this.root;
+  }
   // inorder(node)
+  inorder(node: TNode | null) {
+    if (node != null) {
+      this.inorder(node.left);
+      console.log(node.value);
+      this.inorder(node.right);
+    }
+  }
   // preorder(node)
+  preorder(node: TNode | null) {
+    if (node != null) {
+      console.log(node.value);
+      this.preorder(node.left);
+      this.preorder(node.right);
+    }
+  }
   // postorder(node)
+  postorder(node: TNode | null) {
+    if (node != null) {
+      this.postorder(node.left);
+      this.postorder(node.right);
+      console.log(node.value);
+    }
+  }
   // search(node, data)
 
   insertNode(node: TNode, newNode: TNode) {
