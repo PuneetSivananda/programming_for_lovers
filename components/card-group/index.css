@@ -1,11 +1,12 @@
 body {
   margin: 0px;
+  background-color: black;
 }
 
 .big-card {
   width: 30vmin;
   aspect-ratio: 5 / 7;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .little-card {
