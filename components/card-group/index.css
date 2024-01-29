@@ -1,15 +1,22 @@
 body {
   margin: 0px;
   background-color: black;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.card {
+  aspect-ratio: 5 / 7;
+  background-color: rgba(163, 48, 48, 0.1);
 }
 
 .big-card {
   width: 30vmin;
-  aspect-ratio: 5 / 7;
-  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 1vmin;
 }
 
 .little-card {
   width: 12vmin;
-  aspect-ratio: 5 / 7;
+  border-radius: 1vmin;
 }
