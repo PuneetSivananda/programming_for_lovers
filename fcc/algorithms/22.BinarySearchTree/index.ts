@@ -69,6 +69,17 @@ class BinarySearchTree {
     }
   }
   // search(node, data)
+  search(node: TNode | null, data: number): TNode | null {
+    if (node === null) {
+      return null;
+    } else if (data < node.value) {
+      return this.search(node.left, data);
+    } else if (data > node.value) {
+      return this.search(node.right, data);
+    } else {
+      return node;
+    }
+  }
 
   insertNode(node: TNode, newNode: TNode) {
     if (newNode.value < node.value) {
@@ -118,3 +129,60 @@ class BinarySearchTree {
     }
   }
 }
+
+let BST = new BinarySearchTree();
+BST.insert(15);
+BST.insert(25);
+BST.insert(10);
+BST.insert(7);
+BST.insert(22);
+BST.insert(17);
+BST.insert(13);
+BST.insert(5);
+BST.insert(9);
+BST.insert(27);
+
+let root = BST.getRootNode();
+console.log(root);
+
+BST.inorder(root);
+
+BST.remove(5);
+
+root = BST.getRootNode();
+console.log(root);
+
+BST.remove(7);
+
+//          15
+//         /  \
+//        10   25
+//       / \   / \
+//      9  13 22  27
+//            /
+//           17
+
+root = BST.getRootNode();
+
+// prints 9 10 13 15 17 22 25 27
+BST.inorder(root);
+
+// Removing node with two children
+BST.remove(15);
+
+//          17
+//         /  \
+//        10   25
+//       / \   / \
+//      9  13 22  27
+
+root = BST.getRootNode();
+console.log("inorder traversal");
+
+// prints 9 10 13 17 22 25 27
+BST.inorder(root);
+
+console.log("postorder traversal");
+BST.postorder(root);
+console.log("preorder traversal");
+BST.preorder(root);
