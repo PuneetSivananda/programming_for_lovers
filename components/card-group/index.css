@@ -35,22 +35,38 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.big-card:nth-child(1) {
-  background-color: rgba(0, 0, 255, 0.5);
-  transform: translateX(-10%) rotate(-1deg);
-}
-
 .big-card:nth-child(2) {
   background-color: rgba(0, 0, 255, 0.5);
-  transform: rotate(-2deg);
-}
-
-.big-card:nth-child(3) {
-  background-color: rgba(0, 0, 255, 0.5);
-  transform: translateX(-6%) rotate(-3deg);
+  transform: translateX(-10%) rotate(-3deg);
 }
 
 .big-card:nth-child(4) {
   background-color: rgba(0, 0, 255, 0.5);
+  transform: rotate(-2deg);
+}
+
+.big-card:nth-child(6) {
+  background-color: rgba(0, 0, 255, 0.5);
+  transform: translateX(-6%) rotate(-3deg);
+}
+
+.big-card:nth-child(8) {
+  background-color: rgba(0, 0, 255, 0.5);
   transform: translate(10%, 3%) rotate(5deg);
+}
+
+.card-group:hover > .big-card:nth-child(2) {
+  transform: translate(-70%, 15%) rotate(-20deg);
+}
+
+.card-group:hover > .big-card:nth-child(4) {
+  transform: translate(-50%, 5%) rotate(-7.5deg);
+}
+
+.card-group:hover > .big-card:nth-child(6) {
+  transform: translate(-30%, 5%) rotate(7.5deg);
+}
+
+.card-group:hover > .big-card:nth-child(8) {
+  transform: translate(-10%, 15%) rotate(20deg);
 }
