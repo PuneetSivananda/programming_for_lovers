@@ -19,5 +19,5 @@ df = pd.DataFrame({
     'Probability Distribution':[0.37, 0.23, 0.32, 0.08],
                    })
 df.plot(kind="bar", x="Blood Group", y="Probability Distribution", rot=0)
-plt.show()
-print(df[df["Blood Group"] != "A"]["Probability Distribution"].sum())
+# plt.show()
+print(df[df["Blood Group"].isin(["O", "A"])]["Probability Distribution"].sum())
