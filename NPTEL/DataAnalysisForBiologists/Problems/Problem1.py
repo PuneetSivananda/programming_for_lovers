@@ -20,3 +20,4 @@ df = pd.DataFrame({
                    })
 df.plot(kind="bar", x="Blood Group", y="Probability Distribution", rot=0)
 plt.show()
+print(df[df["Blood Group"] != "A"]["Probability Distribution"].sum())
