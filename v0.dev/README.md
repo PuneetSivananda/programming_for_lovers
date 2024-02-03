@@ -39,4 +39,5 @@ go to https://v0.dev/t/4Sx7Rt7
 
 npx create-next-app
 
-npx v0 add 4Sx7Rt7  
+npx v0 add 4Sx7Rt7
+https://v0.dev/t/2tMBdqHp4Kl
