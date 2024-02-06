@@ -1,0 +1,29 @@
+body {
+  margin: 20px;
+}
+
+.center-div {
+  height: 500px;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  background-color: purple;
+}
+
+.center-div-child {
+  height: 200px;
+  width: 200px;
+}
+
+.child {
+  height: 200px;
+  width: 200px;
+  border: 2px solid black;
+  background-color: red;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
