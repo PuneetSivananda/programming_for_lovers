@@ -83,9 +83,10 @@ function checkBrackets(inputA) {
   return stack.length === 0;
 }
 
-console.log(checkBrackets("(]"));
-console.log(checkBrackets("()[]{}"));
-console.log(checkBrackets("([])"))
+// console.log(checkBrackets("(]"));
+// console.log(checkBrackets("()[]{}"));
+// console.log(checkBrackets("([])"))
+
 // arr.map(item)=>{}
 
 function ownMap(inputArr, condition) {
@@ -95,6 +96,14 @@ function ownMap(inputArr, condition) {
   }
   return outputArr;
 }
+Array.prototype.myMap = function (callback) {
+  let outputArr = [];
+  for (let i = 0; i < this.length; i++) {
+    outputArr.push(callback(this[i]));
+  }
+  return outputArr;
+};
 
-// console.log(ownMap([1,3,4], (i)=> i*2))
-// [1,3,4].map(item=> item*2)
+console.log(ownMap([1, 3, 4], (i) => i * 2));
+console.log([1, 3, 4].map((item) => item * 2));
+console.log([1, 3, 4].myMap((i) => i * 2));
