@@ -38,20 +38,54 @@ async function getValue() {
   return value;
 }
 
-console.log(getValue());
+// console.log(getValue());
 
 // “()”
 // "(]"
 // “()[]{}”
 // “([])”
 function checkBrackets(inputA) {
-  for (let a; a < inputA.length; a++) {
-    for (let b; b < inputA.length; b++) {
-      console.log(inputA[a]);
+  // use stack
+  let stack = [];
+  for (let i = 0; i < inputA.length; i++) {
+    let val = inputA[i];
+    if (val == "(" || val == "[" || val == "{") {
+      stack.push(val);
+      continue;
+    }
+    // no opening brackets
+    if (stack.length == 0) {
+      return false;
+    }
+
+    let check;
+    switch (val) {
+      case "]":
+        check = stack.pop();
+        if (check == "(" || check == "{") {
+          return false;
+        }
+        break;
+      case ")":
+        check = stack.pop();
+        if (check == "[" || check == "{") {
+          return false;
+        }
+        break;
+      case "}":
+        check = stack.pop();
+        if (check == "[" || check == "(") {
+          return false;
+        }
+        break;
     }
   }
+  return stack.length === 0;
 }
 
+console.log(checkBrackets("(]"));
+console.log(checkBrackets("()[]{}"));
+console.log(checkBrackets("([])"))
 // arr.map(item)=>{}
 
 function ownMap(inputArr, condition) {
