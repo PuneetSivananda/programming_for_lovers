@@ -8,14 +8,10 @@ import (
 )
 
 func aVeryBigSum(ar []int64) int64 {
-	var sum, carry int64
+	var sum int64
 	for _, num := range ar {
 		sum += num
-		carry = sum / 10000000000
-		sum %= 10000000000
 	}
-	sum += carry
-
 	return sum
 }
 
@@ -43,7 +39,8 @@ func main() {
 	// 	ar = append(ar, arItem)
 	// }
 
-	result := aVeryBigSum([]int64{1000000001, 1000000002, 1000000003, 1000000004, 1000000005})
+	// result := aVeryBigSum([]int64{1000000001, 1000000002, 1000000003, 1000000004, 1000000005})
+	result := aVeryBigSum([]int64{1001458909, 1004570889, 1007019111, 1003302837, 1002514638, 1006431461, 1002575010, 1007514041, 1007548981, 1004402249})
 	fmt.Println(result)
 
 	// fmt.Fprintf(writer, "%d\n", result)
