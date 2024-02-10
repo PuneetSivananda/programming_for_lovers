@@ -9,3 +9,12 @@ df = pd.DataFrame({
     'Week': [1, 2, 3, 4, 5, 6, 7],
     'NumPatients': [1, 2, 3, 1, 4, 4, 1],
 })
+
+print(df)
+variance = sum([x for x in df['NumPatients']])/len(df['NumPatients'])
+print(f"Variance: {variance:.6f}")
+df['DevMean'] = df['NumPatients'] - variance
+df['DevMeanSq'] = df['DevMean']**2
+print(df)
+print(f"Sum: {sum(df['DevMeanSq'])}")
+print(f"Variance | Avg sq of deviation: {sum(df['DevMeanSq'])/len(df)}")
