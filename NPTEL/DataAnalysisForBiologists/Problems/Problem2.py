@@ -3,6 +3,8 @@ import pandas as pd
 '''
 Calculate variance
 var(X) = E([X-E(X)]^2)
+or 
+var(X) = E(X^2) - E(X)^2
 '''
 
 df = pd.DataFrame({
@@ -10,7 +12,6 @@ df = pd.DataFrame({
     'NumPatients': [1, 2, 3, 1, 4, 4, 1],
 })
 
-print(df)
 variance = sum([x for x in df['NumPatients']])/len(df['NumPatients'])
 print(f"Variance: {variance:.6f}")
 df['DevMean'] = df['NumPatients'] - variance
