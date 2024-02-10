@@ -19,3 +19,13 @@ df['DevMeanSq'] = df['DevMean']**2
 print(df)
 print(f"Sum: {sum(df['DevMeanSq'])}")
 print(f"Variance | Avg sq of deviation: {sum(df['DevMeanSq'])/len(df)}")
+
+"""
+variance
+s2 = 1/n-1 summation of (xi - xi2)
+
+Read: 
+    Measurement of joint variability
+    eg: expression of two genes, what is the variability
+    
+"""
