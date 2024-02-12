@@ -12,6 +12,7 @@
 ### References:
 
 - https://janalin.github.io/analyse-ELISA/index.html#about-the-experiment-in-brief
+- https://bookdown.org/a_shaker/STM1001_Topic_3/1-introduction-to-probability.html#introduction-to-probability
 
 Microbiome Readings
 - https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8846514/
