@@ -2,6 +2,21 @@ package main
 
 import "fmt"
 
+type genericSet map[rune]struct{}
+
+func (s genericSet) add(item rune) {
+	s[item] = struct{}{}
+}
+func (s genericSet) remove(item rune) {
+	delete(s, item)
+}
+func (s genericSet) has(item rune) bool {
+	_, ok := s[item]
+	return ok
+}
+
+type genericKeyTypeSet map[KeyType]struct{}
+
 // usings sets check if each, row and column are having unique values
 // for every 3 by 3 grid check if any are duplicates
 // 	check the index of the 9 items first divide each index by 3 to get remainder
@@ -12,10 +27,15 @@ type KeyType struct {
 }
 
 func isValidSudoku(grid [][]rune) {
-	cols := make(map[rune]int)
+	cols := genericSet{}
 	rows := make(map[rune]int)
 	squares := make(map[KeyType]int)
-
+	cols[1] = struct{}{}
+	cols[1] = struct{}{}
+	fmt.Println(cols)
+	for k, v := range cols {
+		fmt.Println(k, v)
+	}
 	for r := 0; r <= 2; r++ {
 		for c := 0; c <= 2; c++ {
 			fmt.Println(r, c)
