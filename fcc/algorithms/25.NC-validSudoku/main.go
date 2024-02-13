@@ -16,17 +16,17 @@ func isValidSudoku(grid [][]rune) {
 	rows := make(map[rune]int)
 	squares := make(map[KeyType]int)
 
-	for r := 0; r <= 9; r++ {
-		for c := 0; c <= 9; c++ {
+	for r := 0; r <= 2; r++ {
+		for c := 0; c <= 2; c++ {
 			fmt.Println(r, c)
 			fmt.Println(grid[r][c])
 		}
 	}
-	fmt.Println(cols[2], rows, squares)
+	fmt.Println(cols, rows, squares)
 }
 
 func main() {
 	fmt.Println("hello")
-	var grid [][]rune = [][]rune{{5, 3, '.'}, {}}
+	var grid [][]rune = [][]rune{{5, 3, '.'}, {5, 3, '.'}, {5, 3, '.'}}
 	isValidSudoku(grid)
 }
