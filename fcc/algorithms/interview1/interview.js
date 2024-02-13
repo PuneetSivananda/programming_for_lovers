@@ -18,7 +18,17 @@ async function fetchRandomUsers() {
 
 async function main() {
   let users = await fetchRandomUsers();
-  console.log(users);
+  let usersbetween30and60 = users.filter((user) => {
+    return user?.dob?.age > 30 && user?.dob?.age < 60;
+  });
+  let filterUsers = usersbetween30and60.sort(
+    (a, b) => a?.dob?.age - b?.dob?.age
+  );
+  filterUsers.forEach((user) => {
+    console.log(
+      `${user.name.title} ${user.name.first} ${user.name.first}, ${user.gender} `
+    );
+  });
 }
 
 main();
