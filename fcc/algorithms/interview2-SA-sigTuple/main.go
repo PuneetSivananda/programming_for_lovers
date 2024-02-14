@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -17,7 +18,7 @@ func print_board(board [9]string) {
 	fmt.Println()
 }
 
-func player_move(icon string) {
+func player_move(icon string, board *[9]string) {
 	var number int
 	if icon == "x" || icon == "X" {
 		number = 1
@@ -26,7 +27,16 @@ func player_move(icon string) {
 	}
 	turn := fmt.Sprintf("Your turn player %v\n", number)
 	fmt.Printf(turn)
-
+	fmt.Println("Enter your move (1-9)")
+	choice := bufio.NewReader(os.Stdin)
+	playerChoice, _ := choice.ReadString('\n')
+	playerChoice = strings.Replace(playerChoice, "\n", "", -1)
+	ix, _ := strconv.Atoi(playerChoice)
+	if board[ix] == "" {
+		board[ix] = icon
+	} else {
+		fmt.Println("That place is already taken")
+	}
 }
 
 func main() {
@@ -34,17 +44,17 @@ func main() {
 	// board = [" " for x in range(9)]
 	var board [9]string
 	for i := 0; i < 9; i++ {
-		board[i] = "0"
+		board[i] = ""
 	}
-
-	print_board(board)
 
 	player1 := bufio.NewReader(os.Stdin)
 	for {
+		print_board(board)
+		player_move("X", &board)
+		print_board(board)
 		fmt.Println("Enter Prompt: ")
 		player1Text, _ := player1.ReadString('\n')
 		player1Text = strings.Replace(player1Text, "\n", "", -1)
-		fmt.Println(player1Text)
 		if player1Text == "exit" {
 			break
 		}
