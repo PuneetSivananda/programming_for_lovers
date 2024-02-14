@@ -17,6 +17,18 @@ func print_board(board [9]string) {
 	fmt.Println()
 }
 
+func player_move(icon string) {
+	var number int
+	if icon == "x" || icon == "X" {
+		number = 1
+	} else if icon == "o" || icon == "O" {
+		number = 2
+	}
+	turn := fmt.Sprintf("Your turn player %v\n", number)
+	fmt.Printf(turn)
+
+}
+
 func main() {
 	// initialize board
 	// board = [" " for x in range(9)]
