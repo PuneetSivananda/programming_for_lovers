@@ -8,6 +8,13 @@ import (
 )
 
 func main() {
+	// initialize board
+	// board = [" " for x in range(9)]
+	var board [9]string
+	for i := 0; i < 9; i++ {
+		board[i] = "0"
+	}
+
 	player1 := bufio.NewReader(os.Stdin)
 	for {
 		fmt.Println("Enter Prompt: ")
