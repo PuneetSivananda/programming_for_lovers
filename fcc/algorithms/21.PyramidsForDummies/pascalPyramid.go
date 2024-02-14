@@ -11,11 +11,9 @@ func main() {
 
 		value := 1
 		for k := 0; k <= i; k++ {
-			if k > 0 && i > 0 {
-				value = value * (i - k) / k
-			}
-			fmt.Println(value, "\t")
+			fmt.Printf("%4d", value)
+			value = value * (i - k) / (k + 1)
 		}
-		fmt.Println("\n")
+		fmt.Println()
 	}
 }
