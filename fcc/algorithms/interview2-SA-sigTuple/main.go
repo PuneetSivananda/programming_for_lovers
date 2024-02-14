@@ -59,7 +59,7 @@ func is_victory(icon string) bool {
 func is_draw() bool {
 	isDraw := false
 	for _, item := range board {
-		if item != " " {
+		if item != "" {
 			isDraw = true
 			break
 		}
@@ -72,7 +72,7 @@ func main() {
 	// board = [" " for x in range(9)]
 
 	for i := 0; i < 9; i++ {
-		board[i] = " "
+		board[i] = ""
 	}
 
 	// player1 := bufio.NewReader(os.Stdin)
