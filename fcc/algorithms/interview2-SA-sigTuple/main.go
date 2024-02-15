@@ -36,7 +36,6 @@ func player_move(icon string) {
 	ix, _ := strconv.Atoi(playerChoice)
 	if board[ix] == "" {
 		board[ix] = icon
-		fmt.Println(board)
 	} else {
 		fmt.Println("\nThat place is already taken")
 	}
@@ -64,7 +63,7 @@ func is_draw() bool {
 			break
 		}
 	}
-	return isDraw
+	return !isDraw
 }
 
 func main() {
