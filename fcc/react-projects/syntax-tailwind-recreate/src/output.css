@@ -544,15 +544,22 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
+.sticky {
+  position: sticky;
 }
 
-.font-bold {
-  font-weight: 700;
+.top-0 {
+  top: 0px;
 }
 
-.underline {
-  text-decoration-line: underline;
+.flex {
+  display: flex;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.flex-col {
+  flex-direction: column;
 }
