@@ -1,0 +1,13 @@
+{
+  "name": "syntax-tailwind-recreate",
+  "version": "1.0.0",
+  "description": "<!-- https://tailwindui.com/templates/syntax -->",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:dev": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
