@@ -28,7 +28,7 @@ type KeyType struct {
 
 func isValidSudoku(grid [][]rune) {
 	cols := genericSet{}
-	rows := make(map[rune]int)
+	rows := genericSet{}
 	squares := make(map[KeyType]int)
 	cols[1] = struct{}{}
 	cols[1] = struct{}{}
