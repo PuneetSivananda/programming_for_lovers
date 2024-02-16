@@ -3,3 +3,4 @@
 intro
 dist/*
 Data/
+**/node_modules/*
