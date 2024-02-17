@@ -11,8 +11,8 @@ const paths = {
 async function includeHTML() {
   return gulp
     .src([
-      "./src/*.html",
-      "!./src/header.html", // ignore
+      "./src/**/*.html",
+      "!./src/pages/*.html", // ignore
     ])
     .pipe(
       fileinclude({
