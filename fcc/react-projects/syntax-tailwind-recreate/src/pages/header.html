@@ -125,6 +125,7 @@
       >
       <!-- Drop down button -->
       <button
+        onclick="toggleDropDown()"
         class="flex h-6 w-6 items-center justify-center rounded-lg shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-slate-700 dark:ring-inset dark:ring-white/5"
         aria-label="Theme"
         id="headlessui-listbox-button-:r1:"
@@ -157,18 +158,18 @@
           ></path>
         </svg>
       </button>
-      <!-- Drop down list dhow -->
+      <!-- Drop down list show -->
       <ul
-        class="absolute left-1/2 top-full mt-3 w-36 -translate-x-1/2 space-y-1 rounded-xl bg-white p-3 text-sm font-medium shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-slate-800 dark:ring-white/5"
+        class="hidden absolute left-1/2 top-full mt-3 w-36 -translate-x-1/2 space-y-1 rounded-xl bg-white p-3 text-sm font-medium shadow-md shadow-black/5 ring-1 ring-black/5 dark:bg-slate-800 dark:ring-white/5"
         aria-labelledby="headlessui-listbox-button-:r1:"
         aria-orientation="vertical"
-        id="headlessui-listbox-options-:r2:"
+        id="headlessui-listbox-options"
         role="listbox"
         tabindex="0"
         data-headlessui-state="open"
       >
         <li
-          class="flex cursor-pointer select-none items-center rounded-[0.625rem] p-1 text-slate-700 dark:text-slate-400"
+          class="flex cursor-pointer select-none items-center rounded-[0.625rem] p-1 text-slate-700 dark:text-slate-400 hover:bg-slate-100"
           id="headlessui-listbox-option-:r2h:"
           role="option"
           tabindex="-1"
@@ -193,7 +194,7 @@
           <div class="ml-3">Light</div>
         </li>
         <li
-          class="flex cursor-pointer select-none items-center rounded-[0.625rem] p-1 text-sky-500"
+          class="flex cursor-pointer select-none items-center rounded-[0.625rem] p-1 text-sky-500 hover:bg-slate-100"
           id="headlessui-listbox-option-:r2i:"
           role="option"
           tabindex="-1"
@@ -218,7 +219,7 @@
           <div class="ml-3">Dark</div>
         </li>
         <li
-          class="flex cursor-pointer select-none items-center rounded-[0.625rem] p-1 text-slate-700 dark:text-slate-400"
+          class="flex cursor-pointer select-none items-center rounded-[0.625rem] p-1 text-slate-700 dark:text-slate-400 hover:bg-slate-100"
           id="headlessui-listbox-option-:r2j:"
           role="option"
           tabindex="-1"

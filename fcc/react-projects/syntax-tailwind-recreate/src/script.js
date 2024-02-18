@@ -20,3 +20,10 @@
     if (e === "light" || e === "dark") d.style.colorScheme = e;
   } catch (e) {}
 })();
+
+//todo: drop down event listener
+function toggleDropDown() {
+  document
+    .getElementById("headlessui-listbox-options")
+    .classList.toggle("hidden");
+}
