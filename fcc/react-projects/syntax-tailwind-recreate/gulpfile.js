@@ -12,6 +12,10 @@ async function copyImages() {
   return gulp.src("./static/img/**/*.png").pipe(gulp.dest("./build/img"));
 }
 
+async function copyFonts() {
+  return gulp.src("./fonts/**/*.woff2").pipe(gulp.dest("./build/fonts"));
+}
+
 async function includeHTML() {
   return gulp
     .src([
@@ -28,4 +32,4 @@ async function includeHTML() {
     .pipe(gulp.dest(paths.scripts.dest));
 }
 
-exports.default = gulp.series(includeHTML, copyImages);
+exports.default = gulp.series(includeHTML, copyImages, copyFonts);
