@@ -18,7 +18,7 @@ function getTime() {
         localStorage.setItem("theme", "dark");
       }
     }
-    console.log(localStorage.getItem("theme"));
+    // console.log(localStorage.getItem("theme"));
     var d = document.documentElement,
       c = d.classList;
     c.remove("light", "dark");
