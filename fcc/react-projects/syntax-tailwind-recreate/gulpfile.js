@@ -8,6 +8,10 @@ const paths = {
   },
 };
 
+async function copyImages() {
+  return gulp.src("./static/img/**/*.png").pipe(gulp.dest("./build/img"));
+}
+
 async function includeHTML() {
   return gulp
     .src([
@@ -24,4 +28,4 @@ async function includeHTML() {
     .pipe(gulp.dest(paths.scripts.dest));
 }
 
-exports.default = includeHTML;
+exports.default = gulp.series(includeHTML, copyImages);
