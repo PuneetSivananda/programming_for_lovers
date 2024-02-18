@@ -12,8 +12,8 @@ async function includeHTML() {
   return gulp
     .src([
       "./src/**/*.html",
-      "./src/script.js",
       "!./src/pages/*.html", // ignore
+      "./src/script.js",
     ])
     .pipe(
       fileinclude({
