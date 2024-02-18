@@ -47,7 +47,11 @@ func diagonalDifference(arr [][]int32) int32 {
 	tlbr := computeValuesFromTopLeftToBottomRight(arr)
 	trbl := computeValuesFromTopRightToBottomLeft(arr)
 
-	return tlbr + trbl
+	absDiff := tlbr - trbl
+	if absDiff < 0 {
+		absDiff = -absDiff
+	}
+	return absDiff
 }
 
 func main() {
