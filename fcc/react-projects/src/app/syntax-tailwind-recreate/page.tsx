@@ -1,7 +1,12 @@
+import Header from "./src/pages/Header";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="text-600">Syntax Page Screen</div>
-    </main>
+    <div className="flex min-h-full bg-white dark:bg-slate-900">
+      <div className="flex w-full flex-col">
+        <Header />
+        This is Body
+      </div>
+    </div>
   );
 }
