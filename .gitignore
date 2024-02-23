@@ -1,6 +1,5 @@
 *.zip
 *.dSYM
-intro
 dist/*
 Data/
 **/node_modules/*
