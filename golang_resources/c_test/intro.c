@@ -10,6 +10,7 @@ int main(void){
     else if (c == 'n'){
         printf("Not agreed.\n");
     } else{
+        printf("%s", &c);
         printf("Not Supported\n");
     }
 }
