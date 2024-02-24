@@ -8,14 +8,13 @@ export default function Banner() {
           <div className="relative z-10 md:text-center lg:text-left">
             <img
               alt=""
+              // fetchpriority="high"
               width="530"
               height="530"
               decoding="async"
               data-nimg="1"
               className="absolute bottom-full right-full -mb-56 -mr-72 opacity-50"
-              style={{
-                color: "transparent",
-              }}
+              style={{ color: "transparent" }}
               src="./img/blur-cyan.d28a5585.png"
             />
             <div className="relative">
@@ -238,9 +237,7 @@ export default function Banner() {
                 decoding="async"
                 data-nimg="1"
                 className="absolute -right-64 -top-64"
-                style={{
-                  color: "transparent",
-                }}
+                style={{ color: "transparent" }}
                 src="./img/blur-cyan.d28a5585.png"
               />
               <img
@@ -251,9 +248,7 @@ export default function Banner() {
                 decoding="async"
                 data-nimg="1"
                 className="absolute -bottom-40 -right-44"
-                style={{
-                  color: "transparent",
-                }}
+                style={{ color: "transparent" }}
                 src="./img/blur-indigo.b752cf77.png"
               />
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-sky-300 via-sky-300/70 to-blue-300 opacity-10 blur-lg"></div>
@@ -311,7 +306,7 @@ export default function Banner() {
                           <span className="token plain"> </span>
                           <span className="token keyword module">default</span>
                           <span className="token plain"> </span>
-                          <span className="token punctuation"></span>
+                          <span className="token punctuation">`{"{"}`</span>
                           <span className="token plain"></span>
                         </div>
                         <div className="token-line">
@@ -332,7 +327,7 @@ export default function Banner() {
                           </span>
                           <span className="token operator">:</span>
                           <span className="token plain"> </span>
-                          <span className="token punctuation"></span>
+                          <span className="token punctuation">`{"{"}`</span>
                           <span className="token plain"></span>
                         </div>
                         <div className="token-line">
@@ -369,7 +364,7 @@ export default function Banner() {
                         </div>
                         <div className="token-line">
                           <span className="token plain"></span>
-                          <span className="token punctuation"></span>
+                          <span className="token punctuation">`{"}"}`</span>
                         </div>
                       </code>
                     </pre>
