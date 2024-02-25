@@ -15,7 +15,7 @@ export default function Banner() {
               data-nimg="1"
               className="absolute bottom-full right-full -mb-56 -mr-72 opacity-50"
               style={{ color: "transparent" }}
-              src="/static/img/blur-cyan.d28a5585.png"
+              src="/syntax/img/blur-cyan.d28a5585.png"
             />
             <div className="relative">
               <p className="inline bg-gradient-to-r from-indigo-200 via-sky-400 to-indigo-200 bg-clip-text font-display text-5xl tracking-tight text-transparent">
@@ -62,8 +62,8 @@ export default function Banner() {
                 </defs>
                 <g
                   opacity=".4"
-                  clip-path="url(#:Rqla:-clip-path)"
-                  stroke-width="4"
+                  clipPath="url(#:Rqla:-clip-path)"
+                  strokeWidth="4"
                 >
                   <path
                     opacity=".3"
@@ -130,7 +130,7 @@ export default function Banner() {
                     r="10.438"
                     transform="rotate(-180 484.301 574.062)"
                     fill="#0EA5E9"
-                    fill-opacity=".42"
+                    fillOpacity=".42"
                     stroke="#0EA5E9"
                   ></circle>
                   <circle
@@ -184,7 +184,7 @@ export default function Banner() {
                     r="10.438"
                     transform="rotate(-180 83.5 484.3)"
                     fill="#0EA5E9"
-                    fill-opacity=".42"
+                    fillOpacity=".42"
                     stroke="#0EA5E9"
                   ></circle>
                   <circle
