@@ -15,7 +15,7 @@ export default function Banner() {
               data-nimg="1"
               className="absolute bottom-full right-full -mb-56 -mr-72 opacity-50"
               style={{ color: "transparent" }}
-              src="./img/blur-cyan.d28a5585.png"
+              src="/static/img/blur-cyan.d28a5585.png"
             />
             <div className="relative">
               <p className="inline bg-gradient-to-r from-indigo-200 via-sky-400 to-indigo-200 bg-clip-text font-display text-5xl tracking-tight text-transparent">
@@ -238,7 +238,7 @@ export default function Banner() {
                 data-nimg="1"
                 className="absolute -right-64 -top-64"
                 style={{ color: "transparent" }}
-                src="./img/blur-cyan.d28a5585.png"
+                src="/syntax/img/blur-cyan.d28a5585.png"
               />
               <img
                 alt=""
@@ -249,7 +249,7 @@ export default function Banner() {
                 data-nimg="1"
                 className="absolute -bottom-40 -right-44"
                 style={{ color: "transparent" }}
-                src="./img/blur-indigo.b752cf77.png"
+                src="/syntax/img/blur-indigo.b752cf77.png"
               />
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-sky-300 via-sky-300/70 to-blue-300 opacity-10 blur-lg"></div>
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-sky-300 via-sky-300/70 to-blue-300 opacity-10"></div>
@@ -299,14 +299,14 @@ export default function Banner() {
                       07
                       <br />
                     </div>
-                    <pre className="prism-code language-javascript flex overflow-x-auto pb-6">
+                    <pre className="text-slate-400 prism-code language-javascript flex overflow-x-auto pb-6">
                       <code className="px-4">
                         <div className="token-line">
                           <span className="token keyword module">export</span>
                           <span className="token plain"> </span>
                           <span className="token keyword module">default</span>
                           <span className="token plain"> </span>
-                          <span className="token punctuation">`{"{"}`</span>
+                          <span className="token punctuation">{"{"}</span>
                           <span className="token plain"></span>
                         </div>
                         <div className="token-line">
@@ -327,7 +327,7 @@ export default function Banner() {
                           </span>
                           <span className="token operator">:</span>
                           <span className="token plain"> </span>
-                          <span className="token punctuation">`{"{"}`</span>
+                          <span className="token punctuation">{"{"}</span>
                           <span className="token plain"></span>
                         </div>
                         <div className="token-line">
@@ -358,13 +358,13 @@ export default function Banner() {
                         </div>
                         <div className="token-line">
                           <span className="token plain"> </span>
-                          <span className="token punctuation">`{"}"}`</span>
+                          <span className="token punctuation">{"}"}</span>
                           <span className="token punctuation">,</span>
                           <span className="token plain"></span>
                         </div>
                         <div className="token-line">
                           <span className="token plain"></span>
-                          <span className="token punctuation">`{"}"}`</span>
+                          <span className="token punctuation">{"}"}</span>
                         </div>
                       </code>
                     </pre>
