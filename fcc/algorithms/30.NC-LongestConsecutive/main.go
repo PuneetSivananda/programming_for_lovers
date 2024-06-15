@@ -20,25 +20,24 @@ func sort(inputArr []int) []int {
 		if !swapped {
 			break
 		}
-
 	}
 	return inputArr
 }
+
 func checkIfStartofSequence(setResults map[int]struct{}, ix int) bool {
-	if _, ok := setResults[ix]; ok {
-		return true
-	} else {
+	if _, ok := setResults[ix-1]; ok {
 		return false
 	}
+	return true
 }
 
 func max(a, b int) int {
 	if a > b {
 		return a
-	} else {
-		return b
 	}
+	return b
 }
+
 func main() {
 	var n int
 	var longest, length int
@@ -54,25 +53,27 @@ func main() {
 	fmt.Printf("Original Array %v\n", arr)
 	fmt.Println("Sorted Array ", sort(arr))
 
-	// Option 2 dontsort the array
 	// Create a set
 	setResults := make(map[int]struct{})
 	for i := 0; i < len(arr); i++ {
 		setResults[arr[i]] = struct{}{}
 	}
-	fmt.Println(setResults)
+
 	for i := 0; i < n; i++ {
-		if !checkIfStartofSequence(setResults, n-1) {
-			length = 0
-			// for items in numset
-			for j := 0; j < n; j++ {
-				if checkIfStartofSequence(setResults, j+length) {
-					length += 1
+		if checkIfStartofSequence(setResults, arr[i]) {
+			length = 1
+			current := arr[i]
+			for {
+				current++
+				if _, ok := setResults[current]; ok {
+					length++
+				} else {
+					break
 				}
 			}
-
+			fmt.Println(setResults)
 			longest = max(length, longest)
 		}
 	}
-	fmt.Println(longest)
+	fmt.Println("Length of the longest consecutive sequence:", longest)
 }
