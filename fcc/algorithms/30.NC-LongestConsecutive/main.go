@@ -24,9 +24,24 @@ func sort(inputArr []int) []int {
 	}
 	return inputArr
 }
+func checkIfStartofSequence(setResults map[int]struct{}, ix int) bool {
+	if _, ok := setResults[ix]; ok {
+		return true
+	} else {
+		return false
+	}
+}
 
+func max(a, b int) int {
+	if a > b {
+		return a
+	} else {
+		return b
+	}
+}
 func main() {
 	var n int
+	var longest, length int
 	fmt.Printf("Enter the num of integers to input:= ")
 	fmt.Scanf("%d", &n)
 
@@ -38,15 +53,26 @@ func main() {
 
 	fmt.Printf("Original Array %v\n", arr)
 	fmt.Println("Sorted Array ", sort(arr))
+
+	// Option 2 dontsort the array
+	// Create a set
 	setResults := make(map[int]struct{})
-	for i := 0; i < len(sort(arr)); i++ {
+	for i := 0; i < len(arr); i++ {
 		setResults[arr[i]] = struct{}{}
 	}
 	fmt.Println(setResults)
-	if _, ok := setResults[5]; ok {
-		fmt.Println("Found")
-	} else {
-		fmt.Println("Not Found")
-	}
+	for i := 0; i < n; i++ {
+		if !checkIfStartofSequence(setResults, n-1) {
+			length = 0
+			// for items in numset
+			for j := 0; j < n; j++ {
+				if checkIfStartofSequence(setResults, j+length) {
+					length += 1
+				}
+			}
 
+			longest = max(length, longest)
+		}
+	}
+	fmt.Println(longest)
 }
