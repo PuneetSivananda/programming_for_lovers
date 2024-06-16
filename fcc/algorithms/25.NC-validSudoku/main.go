@@ -30,12 +30,11 @@ func isValidSudoku(grid [][]rune) {
 	cols := genericSet{}
 	rows := genericSet{}
 	squares := make(map[KeyType]int)
-	cols[1] = struct{}{}
-	cols[1] = struct{}{}
 	fmt.Println(cols)
-	for k, v := range cols {
-		fmt.Println(k, v)
+	for k, _ := range cols {
+		cols[k] = struct{}{}
 	}
+	fmt.Println(cols)
 	for r := 0; r <= 2; r++ {
 		for c := 0; c <= 2; c++ {
 			fmt.Println(r, c)
@@ -46,7 +45,6 @@ func isValidSudoku(grid [][]rune) {
 }
 
 func main() {
-	fmt.Println("hello")
 	var grid [][]rune = [][]rune{{5, 3, '.'}, {5, 3, '.'}, {5, 3, '.'}}
 	isValidSudoku(grid)
 }
