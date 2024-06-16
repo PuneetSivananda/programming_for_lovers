@@ -1,79 +1,38 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
-// Input: nums = [2,20,4,10,3,4,5]
-// Output: 4
+// Input: ["neet","code"]
+// Output: "4#neet4#code"
 
-func sort(inputArr []int) []int {
-	temp := 0
-	for i := 0; i < len(inputArr); i++ {
-		swapped := false
-		for j := 0; j < len(inputArr)-i-1; j++ {
-			if inputArr[j] > inputArr[j+1] {
-				temp = inputArr[j]
-				inputArr[j] = inputArr[j+1]
-				inputArr[j+1] = temp
-				swapped = true
-			}
-		}
-		if !swapped {
-			break
-		}
+func encode(inputStr []string) string {
+	res := ""
+	for i := 0; i < len(inputStr); i++ {
+		res = res + strconv.Itoa(len(inputStr[i])) + "#" + inputStr[i]
 	}
-	return inputArr
+	return res
 }
 
-func checkIfStartofSequence(setResults map[int]struct{}, ix int) bool {
-	if _, ok := setResults[ix-1]; ok {
-		return false
+func decode(encodedString string) {
+	res := []string{}
+	i := 0
+	for i < len(encodedString) {
+		j := i
+		for encodedString[j] != "#" {
+			j += 1
+		}
+		length := int(encodedString[i:j])
+		encodedString[j+1 : j+1+length]
+		res = append(res, encodedString[j+1:j+1+length])
+		i = j + 1 + length
 	}
-	return true
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
+	return res
 }
 
 func main() {
-	var n int
-	var longest, length int
-	fmt.Printf("Enter the num of integers to input:= ")
-	fmt.Scanf("%d", &n)
-
-	var arr = make([]int, n)
-
-	for i := 0; i < n; i++ {
-		fmt.Scanf("%d", &arr[i])
-	}
-
-	fmt.Printf("Original Array %v\n", arr)
-	fmt.Println("Sorted Array ", sort(arr))
-
-	// Create a set
-	setResults := make(map[int]struct{})
-	for i := 0; i < len(arr); i++ {
-		setResults[arr[i]] = struct{}{}
-	}
-
-	for i := 0; i < n; i++ {
-		if checkIfStartofSequence(setResults, arr[i]) {
-			length = 1
-			current := arr[i]
-			for {
-				current++
-				if _, ok := setResults[current]; ok {
-					length++
-				} else {
-					break
-				}
-			}
-			fmt.Println(setResults)
-			longest = max(length, longest)
-		}
-	}
-	fmt.Println("Length of the longest consecutive sequence:", longest)
+	inputStr := []string{"neet", "code"}
+	fmt.Println(encode(inputStr))
 }
