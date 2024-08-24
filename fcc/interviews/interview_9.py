@@ -5,18 +5,18 @@
 prices = [7, 1, 5, 3, 6, 4]
 
 max_profit = 0
-min_price = float("-inf")
+min_price = float("inf")
 
 for item in prices:
     if(item < min_price):
         min_price = item
-        
+
     diff = item - min_price
-    if(diff > min_price):
+    if(diff > max_profit):
         max_profit = diff 
-    print(max_profit)
     
-# print(get_max(max_price_list))
+    
+print(max_profit)
     
 
 # Given a list of orders and a list of applicable offers, 
@@ -64,7 +64,8 @@ for item in prices:
 
 
 
-BOOKS(id, isdn, author, tilte, description)
+"""
+    BOOKS(id, isdn, author, tilte, description)
 
 AUTHORS(id, boodid, author)
 
@@ -110,17 +111,4 @@ user_id	name	totalamt
  
 This output matches your criteria, as all have total purchase amounts greater than 1000.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+"""
