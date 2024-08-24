@@ -4,17 +4,13 @@
 
 prices = [7, 1, 5, 3, 6, 4]
 
-
-def get_max(lista):
-    max = 0
-    for i in range(0, len(lista)-1):
-        if(lista[i] > max):
-            max = lista[i]
-    return max
 max_profit = 0
 min_price = float("-inf")
 
 for item in prices:
+    if(item < min_price):
+        min_price = item
+        
     diff = item - min_price
     if(diff > min_price):
         max_profit = diff 
@@ -44,24 +40,24 @@ for item in prices:
  
 # Here's an example to consider: Given the lists [7, 8, 3, 1] and [4, 5, 6], which represent the integers 7831 and 456 respectively, what would be the result of adding these two integers together? Explain your approach and provide the code implementation without using any inbuilt methods.
 
-inp1 = [1, 3, 8, 7] 
-inp2 = [6, 5, 4]
+# inp1 = [1, 3, 8, 7] 
+# inp2 = [6, 5, 4]
 
-def get_number(input_number):
-    range_start = 1
-    count = len(input_number)
-    for i in range(0, len(input_number)-1):
-        input_number
+# def get_number(input_number):
+#     range_start = 1
+#     count = len(input_number)
+#     for i in range(0, len(input_number)-1):
+#         input_number
         
-    return input_number
+#     return input_number
 
-print(get_number(inp1))
+# print(get_number(inp1))
 
 
 
-@('/path/value/{params}')
-return 
-yeild 
+# @('/path/value/{params}')
+# return 
+# yeild 
 
 
 
