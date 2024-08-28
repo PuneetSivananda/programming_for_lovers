@@ -19,6 +19,18 @@ for item in prices:
 print(max_profit)
     
 
+
+def rotate_array(nums, k):
+    n = len(nums)
+    k = k % n
+    nums[:] = nums[-k:] + nums[:-k]
+    return nums
+
+nums = [1,2,3,4,5,6,7]
+k = 3
+print(rotate_array(nums, k))
+
+
 # Given a list of orders and a list of applicable offers, 
 # write a function that calculates the best possible price for each order by applying the most favorable offer or combination of offers.
  
