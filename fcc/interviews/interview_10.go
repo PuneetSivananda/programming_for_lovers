@@ -32,20 +32,20 @@ func isPalindrome(s string) bool {
 	}
 	lenS := len(onlyAsciChars)
 	var reversedChars []string
-	for i := lenS; i > 0; i-- {
+	for i := lenS - 1; i >= 0; i-- {
 		reversedChars = append(reversedChars, onlyAsciChars[i])
 
 	}
+	reversedStr := strings.Join(reversedChars, "")
+	joinedStr := strings.Join(onlyAsciChars, "")
 
-	if reversedChars == onlyAsciChars {
+	if reversedStr == joinedStr {
 		return true
 	} else {
 		return false
 	}
-
 }
 
 func main() {
-	isPalindrome("sample")
-	fmt.Printf("Hello, World!")
+	fmt.Println(isPalindrome("aba"))
 }
