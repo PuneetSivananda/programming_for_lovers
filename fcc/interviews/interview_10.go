@@ -19,6 +19,7 @@ import (
 // ToLower
 // Contains
 // Reverse using for loop
+// Join array of []string to string
 // check strings
 
 func isPalindrome(s string) bool {
