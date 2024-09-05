@@ -41,7 +41,7 @@ func fetchCatsApiWithoutChanels() []data {
 	return images
 }
 
-func fetchCatsApiWithChannels(ch chan<- string, wg *sync.WaitGroup) []data {
+func fetchCatsApiWithChannels(ch chan<- string, wg *sync.WaitGroup) {
 	defer wg.Done()
 	count := "1"
 	url := fmt.Sprintf("https://api.thecatapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=RANDOM&page=0&limit=%s", count)
@@ -62,15 +62,33 @@ func fetchCatsApiWithChannels(ch chan<- string, wg *sync.WaitGroup) []data {
 		fmt.Printf("Error Decoding Data")
 
 	}
-	// ch <- fmt.Sprintf("This is the data %s", data)
-	return images
+	ch <- fmt.Sprintf("This is the data %s", images[0].Url)
 }
 
 func main() {
 	startNow := time.Now()
+	// for i := 0; i < 10; i++ {
+	// 	cat := fetchCatsApiWithoutChanels()
+	// 	fmt.Println(cat[0].Url)
+	// }
+
+	ch := make(chan string)
+	var wg sync.WaitGroup
+	// run the code as co-routine for each single api call
 	for i := 0; i < 10; i++ {
-		cat := fetchCatsApiWithoutChanels()
-		fmt.Println(cat[0].Url)
+		wg.Add(1)
+		go fetchCatsApiWithChannels(ch, &wg)
+	}
+
+	// go routine for cleanup and wait for finish
+	go func() {
+		wg.Wait()
+		close(ch)
+	}()
+
+	// read the result sent to channel
+	for result := range ch {
+		fmt.Println(result)
 	}
 	fmt.Println("Elapased Time Since: ", time.Since(startNow))
 }
