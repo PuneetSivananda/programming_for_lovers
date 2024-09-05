@@ -9,13 +9,14 @@ import (
 	"net/http"
 )
 
-func fetchCatsApi() interface{} {
-	type data struct {
-		Id     string `json:"id"`
-		Url    string `json:"url"`
-		Width  int    `json:"width"`
-		Height int    `json:"heigth"`
-	}
+type data struct {
+	Id     string `json:"id"`
+	Url    string `json:"url"`
+	Width  int    `json:"width"`
+	Height int    `json:"height"`
+}
+
+func fetchCatsApiWithoutChanels() []data {
 
 	count := "10"
 	url := fmt.Sprintf("https://api.thecatapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=RANDOM&page=0&limit=%s", count)
@@ -40,6 +41,9 @@ func fetchCatsApi() interface{} {
 }
 
 func main() {
-	cats := fetchCatsApi()
-	fmt.Println(cats)
+	cats := fetchCatsApiWithoutChanels()
+	for _, cat := range cats {
+		fmt.Println(cat.Url)
+	}
+
 }
