@@ -36,7 +36,6 @@ func fetchCatsApiWithoutChanels() []data {
 	err = json.Unmarshal(body, &images)
 	if err != nil {
 		fmt.Printf("Error Decoding Data")
-
 	}
 	return images
 }
