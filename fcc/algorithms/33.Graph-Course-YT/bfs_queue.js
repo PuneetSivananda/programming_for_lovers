@@ -1,5 +1,5 @@
 const graph = {
-  a: ["b", "c"],
+  a: ["c", "b"],
   b: ["d"],
   c: ["e"],
   d: ["f"],
@@ -7,15 +7,17 @@ const graph = {
   f: [],
 };
 
-depthFirstPrint(graph, "a");
+breadthFirstPrint(graph, "a");
 
-function depthFirstPrint(graph, start) {
-  const stack = [start];
-  while (stack.length > 0) {
-    let curr = stack.pop();
+function breadthFirstPrint(graph, start) {
+  const queue = [start];
+  // array shift, push
+
+  while (queue.length > 0) {
+    let curr = queue.shift();
     console.log(curr);
     for (let neigh of graph[curr]) {
-      stack.push(neigh);
+      queue.push(neigh);
     }
   }
 }
