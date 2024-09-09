@@ -18,4 +18,21 @@ function hasPath(graph, src, dest) {
   }
   return false;
 }
+
+function hasPathQ(graph, src, dest) {
+  const queue = [src];
+  while (queue.length > 0) {
+    let curr = queue.shift();
+    if (curr == dest) {
+      return true;
+    }
+
+    for (let neigh of graph[curr]) {
+      queue.push(neigh);
+    }
+  }
+  return false;
+}
+
 console.log(hasPath(graph, "a", "e"));
+console.log(hasPathQ(graph, "a", "e"));
