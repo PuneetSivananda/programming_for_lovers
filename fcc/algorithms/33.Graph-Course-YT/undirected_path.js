@@ -13,13 +13,29 @@ function buildGraph(edges) {
   }
   return graph;
 }
+function hasPath(graph, start, dest, visited) {
+  if (start == dest) {
+    return true;
+  }
+  if (visited.has(start)) {
+    return false;
+  }
+  visited.add(start);
+  for (let neigh of graph[start]) {
+    if (hasPath(graph, neigh, dest, visited)) {
+      return true;
+    }
+  }
+  return false;
+}
 
 function undirected_path(edges, start, dest) {
   // Convert to adjacency list
   //   do dfs or bfs
+  let visited = new Set();
   const graph = buildGraph(edges);
-  
-  console.log(graph);
+  // dfs
+  return hasPath(graph, start, dest, visited);
 }
 
 const edges = [
