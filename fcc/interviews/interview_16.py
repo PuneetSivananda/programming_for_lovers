@@ -32,15 +32,14 @@ def ownLogic(a, b):
     #         anotherIntermediate.append(x)
     
     for item in intermediate:
-        if item in setIntermediate:
+        if setIntermediate.get(item) is not None:
             setIntermediate[item] += 1
         else:
             setIntermediate[item] = 1
         
     # print(setIntermediate)
     for k, v in setIntermediate.items():
-        print(k, v)
-
+        print(k)
 ownLogic(a, b)
 
 # def multiplexers ():  
