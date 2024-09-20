@@ -1,0 +1,64 @@
+# def multiplexers ():  
+#     return [lambda n1: index * n1 for index in range (4)]  
+  
+# print([m1(2) for m1 in multiplexers()])
+
+# def print_pattern():
+#     for i in range(4):
+#         # print("\n")
+#         for j in range(i - 1):
+#             print("*")
+
+# print_pattern()
+
+a = [1,2,3,4,5] 
+b = [4,5,2,0,9]
+
+# print(list(set(a+b)))
+
+def ownLogic(a, b):
+    intermediate = []
+    anotherIntermediate = []
+    for i in a:
+        intermediate.append(i)
+    for j in b:
+        intermediate.append(j)
+    setIntermediate = {}
+    
+    # for x in intermediate:
+    #     if (x in intermediate):
+    #         continue
+    #     else:
+    #         anotherIntermediate.append(x)
+    
+    for item in intermediate:
+        if item in setIntermediate:
+            setIntermediate[item] += 1
+        else:
+            setIntermediate[item] = 1
+        
+    # print(setIntermediate)
+    for k, v in setIntermediate.items():
+        print(k, v)
+
+ownLogic(a, b)
+
+# def multiplexers ():  
+  
+#     return [lambda n1: index * n1 for index in range (4)]  
+  
+# print [m1 (2) for m1 in multiplexers ()]  
+ 
+"""* * * * *
+
+ * * * *
+
+  * * *
+
+   * *
+
+    *
+"""
+# a = [1,2,3,4,5] b = [4,5,2,0,9]
+ 
+ 
