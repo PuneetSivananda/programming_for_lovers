@@ -18,7 +18,6 @@ b = [4,5,2,0,9]
 
 def ownLogic(a, b):
     intermediate = []
-    anotherIntermediate = []
     for i in a:
         intermediate.append(i)
     for j in b:
@@ -48,7 +47,8 @@ ownLogic(a, b)
   
 # print [m1 (2) for m1 in multiplexers ()]  
  
-"""* * * * *
+"""
+* * * * *
 
  * * * *
 
@@ -60,4 +60,15 @@ ownLogic(a, b)
 """
 # a = [1,2,3,4,5] b = [4,5,2,0,9]
  
- 
+def print_inverted_pyramid(n):
+    n = int(n)
+    for i in range(n, 1, -1):
+        for space in range(0, n-i):
+            print("  ", end="")
+        for j in range(i, 2*i-1):
+            print("* ", end="")
+        for j in range(1, i-1):
+            print("* ", end="")
+        print()
+
+print_inverted_pyramid(5)
