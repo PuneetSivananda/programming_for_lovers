@@ -28,8 +28,25 @@ function buildGraph(edges) {
   return graph;
 }
 
-function shortest_path() {
+function shortest_path(nodeA, nodeB) {
   const graph = buildGraph(edges);
-  console.log(graph);
+  const visited = new Set([nodeA]);
+  const queue = [[nodeA, 0]];
+
+  while (queue.length > 0) {
+    let [curr, dist] = queue.shift();
+    if (curr === nodeB) {
+      return dist;
+    }
+    for (let neigh of graph[curr]) {
+      // when ever adding to q
+      if (!visited.has(neigh)) {
+        visited.add(neigh);
+        queue.push([neigh, dist + 1]);
+      }
+    }
+  }
+  return -1;
 }
-console.log(shortest_path());
+
+console.log(shortest_path("w", "y"));
