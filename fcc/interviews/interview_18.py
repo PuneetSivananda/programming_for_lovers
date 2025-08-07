@@ -7,16 +7,6 @@ list_of_letter = list(set(str1))
 
 print(sorted(list_of_letter))
 
-def check_is_less_than(func, arg1, arg2)
-    if(arg1>arg2):
-        return func(ar1, arg2)
-    else:
-        return func(arg2, arg1)
- 
-
-# @check_is_less_than
-# def div(a,b):
-# 	return a/b
 
 
 
